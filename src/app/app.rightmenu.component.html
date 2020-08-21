@@ -1,0 +1,55 @@
+<div class="layout-sidebar-right" [ngClass]="{'layout-sidebar-right-active': app.rightMenuActive}" (click)="app.rightMenuClick = true">
+    <h5>Activity</h5>
+    <div class="widget-timeline">
+        <div class="timeline-event">
+                    <span class="timeline-event-icon" style="background-color:#64B5F6">
+                        <i class="pi pi-dollar"></i>
+                    </span>
+            <div class="timeline-event-title">New Sale</div>
+            <div class="timeline-event-detail">Richard Jones has purchased a blue t-shirt for <strong>$79</strong>.</div>
+        </div>
+        <div class="timeline-event">
+                    <span class="timeline-event-icon" style="background-color:#7986CB">
+                        <i class="timeline-icon pi pi-download"></i>
+                    </span>
+            <div class="timeline-event-title">Withdrawal Initiated</div>
+            <div class="timeline-event-detail">Your request for withdrawal of <strong>$2500</strong> has been initiated.</div>
+        </div>
+        <div class="timeline-event">
+                    <span class="timeline-event-icon" style="background-color:#4DB6AC">
+                        <i class="timeline-icon pi pi-question"></i>
+                    </span>
+            <div class="timeline-event-title">Question Received</div>
+            <div class="timeline-event-detail">Jane Davis has posted a <strong>new question</strong> about your product.</div>
+        </div>
+        <div class="timeline-event">
+                    <span class="timeline-event-icon" style="background-color:#4DD0E1">
+                        <i class="timeline-icon pi pi-comment"></i>
+                    </span>
+            <div class="timeline-event-title">Comment Received</div>
+            <div class="timeline-event-detail">Claire Smith has upvoted your store along with a <strong>comment</strong>.</div>
+        </div>
+    </div>
+
+    <hr />
+
+    <h5>Quick Withdraw</h5>
+
+    <div class="withdraw p-fluid">
+        <div>
+            <input pInputText type="text" placeholder="Amount" />
+        </div>
+        <div>
+            <p-dropdown [options]="amount" [(ngModel)]="selectedAmount"></p-dropdown>
+        </div>
+        <div>
+            <button pButton type="button" label="Confirm" icon="pi pi-check"></button>
+        </div>
+    </div>
+
+    <hr />
+
+    <h5>Shipment Tracking</h5>
+    <p>Track your ongoing shipments to customers.</p>
+    <img class="logo-image" src="assets/demo/images/sidebar-right/staticmap.png" alt="diamond-ng" style="width:100%"/>
+</div>

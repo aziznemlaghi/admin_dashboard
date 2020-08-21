@@ -1,0 +1,16 @@
+<div class="layout-sidebar" (click)="onMenuClick($event)">
+    <a [routerLink]="['/']" class="logo">
+        <img id="app-logo" class="logo-image" src="assets/layout/images/logo-white.svg" alt="diamond-ng"/>
+        <span class="app-name">DIAMOND</span>
+    </a>
+
+
+    <div class="layout-menu-container">
+        <ul class="layout-menu">
+            <ng-container *ngFor="let item of model; let i = index;">
+                <li app-menuitem *ngIf="!item.separator" [item]="item" [index]="i" [root]="true"></li>
+                <li *ngIf="item.separator" class="menu-separator"></li>
+            </ng-container>
+        </ul>
+    </div>
+</div>

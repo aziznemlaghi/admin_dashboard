@@ -1,0 +1,11 @@
+theme.css
+build
+dist
+node_modules
+.DS_Store
+.idea
+sassdoc
+
+src/assets/theme/*/theme-*.css
+src/assets/layout/css/layout-*.css
+src/assets/sass/designer
