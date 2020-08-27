@@ -105,12 +105,20 @@
     }
 }
 
-@media print {
-    .invoice {    
-        padding: 0;  
+@media print{
+    body * {
+        visibility: hidden;
+    }
+    #invoice-content * {
+        visibility: visible;
+    }
+    #invoice-content {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 0;
         margin: 0;
-        background: #ffffff;
-        color: #424242;
     }
 }
 

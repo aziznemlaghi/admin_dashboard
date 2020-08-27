@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { EventService } from '../service/eventservice';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
+import { Product } from '../domain/product';
+import { ProductService } from '../service/productservice';
 
 @Component({
-    templateUrl: './dashboard.component.html'
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboarddemo.scss'],
 })
 export class DashboardDemoComponent implements OnInit {
 
@@ -14,17 +13,22 @@ export class DashboardDemoComponent implements OnInit {
 
     items: MenuItem[];
 
-    chartData: any;
+    ordersChart: any;
 
-    chartOptions: any;
+    ordersChartOptions: any;
 
-    fullCalendarOptions: any;
+    orderWeek: any;
 
-    events: any[];
+    selectedOrderWeek: any;
 
-    constructor( private eventService: EventService) {}
+    products: Product[];
+
+    revenueChart: any;
+
+    constructor(private productService: ProductService) {}
 
     ngOnInit() {
+        this.productService.getProducts().then(data => this.products = data);
 
         this.cols = [
             { field: 'vin', header: 'Vin' },
@@ -33,89 +37,75 @@ export class DashboardDemoComponent implements OnInit {
             { field: 'color', header: 'Color' }
         ];
 
-        this.items = [
-            { label: 'Save', icon: 'pi pi-check' },
-            { label: 'Update', icon: 'pi pi-refresh' },
-            { label: 'Delete', icon: 'pi pi-trash' },
+        this.items = [{
+            label: 'Shipments',
+            items: [
+                { label: 'Tracker', icon: 'pi pi-compass' },
+                { label: 'Map', icon: 'pi pi-map-marker' },
+                { label: 'Manage', icon: 'pi pi-pencil' }
+            ]
+        }
         ];
 
-        this.chartData = {
+        this.ordersChart = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [{
-                label: 'Sales',
-                data: [12, 19, 3, 5, 2, 3, 9],
-                borderColor: [
-                    '#0F97C7',
-                ],
-                borderWidth: 3,
-                borderDash: [5, 5],
-                fill: false,
-                pointRadius: 3
-            }, {
-                label: 'Income',
-                data: [1, 2, 5, 3, 12, 7, 15],
+                label: 'New',
+                data: [2, 7, 20, 9, 16, 9, 5],
                 backgroundColor: [
-                    'rgba(187,222,251,0.2)',
+                    'rgba(100, 181, 246, 0.2)',
                 ],
                 borderColor: [
-                    '#578697',
+                    '#64B5F6',
                 ],
                 borderWidth: 3,
                 fill: true
-            },
-            {
-                label: 'Expenses',
-                data: [7, 12, 15, 5, 3, 13, 21],
-                borderColor: [
-                    '#1BA7AF',
-                ],
-                borderWidth: 3,
-                fill: false,
-                pointRadius: [4, 6, 4, 12, 8, 0, 4]
-            },
-            {
-                label: 'New Users',
-                data: [3, 7, 2, 17, 15, 13, 19],
-                borderColor: [
-                    '#E2841A',
-                ],
-                borderWidth: 3,
-                fill: false
             }]
         };
 
-        this.chartOptions = {
+        this.ordersChartOptions = {
+            legend: {
+                display: true,
+            },
             responsive: true,
             hover: {
                 mode: 'index'
             },
             scales: {
-                xAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Month'
-                    }
-                }],
                 yAxes: [{
-                    display: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Value'
+                    ticks: {
+                        min: 0,
+                        max: 20
                     }
                 }]
             }
         };
 
-        this.eventService.getEvents().then(events => { this.events = events; });
+        this.orderWeek = [
+            {name: 'This Week', code: '0'},
+            {name: 'Last Week', code: '1'}
+        ];
 
-        this.fullCalendarOptions = {
-            plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
-            defaultDate: '2016-01-12',
-            header: {
-                right: 'prev,next, today',
-                left: 'title'
-            }
+        this.revenueChart = {
+            labels: ['Direct', 'Promoted', 'Affiliate'],
+            datasets: [{
+                data: [40, 35, 25],
+                backgroundColor: ['#64B5F6', '#7986CB', '#4DB6AC']
+            }]
         };
+    }
+
+    changeDataset(event) {
+        const dataSet = [
+            [2, 7, 20, 9, 16, 9, 5],
+            [2, 4, 9, 20, 16, 12, 20],
+            [2, 17, 7, 15, 4, 20, 8],
+            [2, 2, 20, 4, 17, 16, 20]
+        ];
+
+        this.ordersChart.datasets[0].data = dataSet[parseInt(event.currentTarget.getAttribute('data-index'))];
+        this.ordersChart.datasets[0].label = event.currentTarget.getAttribute('data-label');
+        this.ordersChart.datasets[0].borderColor = event.currentTarget.getAttribute('data-stroke');
+        this.ordersChart.datasets[0].backgroundColor = event.currentTarget.getAttribute('data-fill');
     }
 }

@@ -33,8 +33,9 @@
                             "node_modules/@fullcalendar/daygrid/main.min.css",
                             "node_modules/@fullcalendar/timegrid/main.min.css",
                             "node_modules/primeicons/primeicons.css",
-                            "node_modules/primeflex/primeflex.css",
+                            "node_modules/primeflex/primeflex.min.css",
                             "src/assets/demo/css/codehighlight.css",
+                            "src/assets/demo/flags/flags.css",
                             "src/styles.scss"
                         ],
                         "scripts": [
@@ -111,8 +112,9 @@
                             "node_modules/@fullcalendar/daygrid/main.min.css",
                             "node_modules/@fullcalendar/timegrid/main.min.css",
                             "node_modules/primeicons/primeicons.css",
-                            "node_modules/primeflex/primeflex.css",
+                            "node_modules/primeflex/primeflex.min.css",
                             "src/assets/demo/css/codehighlight.css",
+                            "src/assets/demo/flags/flags.css",
                             "src/styles.scss"
                         ],
                         "scripts": [

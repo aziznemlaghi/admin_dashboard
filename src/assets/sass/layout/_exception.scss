@@ -5,7 +5,8 @@
     @include flex();
     @include flex-justify-center();
     @include flex-align-center();
-    
+    min-height: 100vh;
+
     .logo {
         width: 50px;
         position: absolute;
@@ -44,15 +45,15 @@
     }
 
     &.access {
-        background-image: url("\#{resource['diamond-layout:images/pages/bg-access.jpg']}");
+        background-image: url("../../layout/images/pages/bg-access.jpg");
     }
 
     &.notfound {
-        background-image: url("\#{resource['diamond-layout:images/pages/bg-404.jpg']}");
+        background-image: url("../../layout/images/pages/bg-404.jpg");
     }
 
     &.error {
-        background-image: url("\#{resource['diamond-layout:images/pages/bg-error.jpg']}");
+        background-image: url("../../layout/images/pages/bg-error.jpg");
     }
 }
 

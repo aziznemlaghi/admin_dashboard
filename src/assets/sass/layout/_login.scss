@@ -5,7 +5,7 @@
     .login-wrapper {
         @include flex();
         height: 100vh;
-        
+
         .login-panel {
             width: 30%;
             height: 100%;
@@ -127,7 +127,7 @@
             .login-image {
                 background-size: cover;
                 background-repeat: no-repeat;
-                background-image: url("\#{resource['diamond-layout:images/pages/bg-login.jpg']}");
+                background-image: url("../../layout/images/pages/bg-login.jpg");
             }
         }
     }

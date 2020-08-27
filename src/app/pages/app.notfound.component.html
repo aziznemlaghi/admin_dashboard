@@ -1,12 +1,9 @@
 <div class="exception-body notfound">
-    <div class="exception-panel">
-        <div class="exception-content">
-            <img src="assets/layout/images/pages/icon-404.svg">
-            <h1>Page Not Found</h1>
-            <p>Requested resource is not available.</p>
-            <button type="button" [routerLink]="['/']" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false">
-                <span class="ui-button-text ui-c">Go to Dashboard</span>
-            </button>
-        </div>
+    <img src="assets/layout/images/logo-white.svg" alt="diamond-layout" class="logo">
+
+    <div class="exception-content">
+        <div class="exception-title">NOT FOUND</div>
+        <div class="exception-detail">Requested resource is not available.</div>
+        <a [routerLink]="['/']">Go to Dashboard</a>
     </div>
 </div>

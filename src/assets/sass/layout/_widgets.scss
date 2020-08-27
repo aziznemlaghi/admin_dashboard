@@ -28,7 +28,7 @@
     .overview-detail {
         text-align: center;
         margin-top: 1rem;
-        
+
         .p-col-6 {
             padding: .5rem;
         }
@@ -55,7 +55,7 @@
         .overview-title {
             color: #64B5F6;
         }
-        
+
         .overview-icon {
             background: #64B5F6;
             color: #1976D2;
@@ -68,7 +68,7 @@
         .overview-title {
             color: #7986CB;
         }
-        
+
         .overview-icon {
             background: #7986CB;
             color: #303F9F;
@@ -81,7 +81,7 @@
         .overview-title {
             color: #4DB6AC;
         }
-        
+
         .overview-icon {
             background: #4DB6AC;
             color: #00796B;
@@ -94,7 +94,7 @@
         .overview-title {
             color: #4DD0E1;
         }
-        
+
         .overview-icon {
             background: #4DD0E1;
             color: #0097A7;
@@ -190,7 +190,7 @@
         }
 
         .listitem-value {
-            font-weight: 600; 
+            font-weight: 600;
         }
     }
 }
@@ -274,7 +274,7 @@
     }
 }
 
-.widget-timeline {        
+.widget-timeline {
     .timeline-event {
         padding: 0 1rem 1rem 1rem;
         border-left: 1px solid $dividerColor;
@@ -312,34 +312,34 @@
     }
 }
 
-.widget-chat {    
+.widget-chat {
     ul {
         padding: 1rem;
         margin: 0;
         list-style-type: none;
-        
+
         li {
             padding: .5rem 0;
             @include flex();
             align-items: flex-start;
-            
+
             img {
                 width: 36px;
             }
-            
+
             div {
                 padding: .5rem 1rem;
                 margin: .25rem 0;
                 border-radius: $borderRadius;
             }
-            
+
             &.message-from {
                 justify-content: flex-start;
 
                 img {
                     margin-right: .5rem;
                 }
-                
+
                 div {
                     order: 2;
                     color: #121212;
@@ -347,15 +347,15 @@
                     border: solid 1px #d6e9c6;
                 }
             }
-            
-            &.message-own {  
+
+            &.message-own {
                 justify-content: flex-end;
 
                 img {
                     margin-left: .5rem;
                     order: 2;
                 }
-                
+
                 div {
                     order: 1;
                     color: #121212;
@@ -365,12 +365,12 @@
             }
         }
     }
-    
+
     .new-message {
         height: 40px;
         border-top: 1px solid $dividerColor;
         color: #afafc0;
-        
+
         .message-attachment {
             display: inline-block;
             border-right: 1px solid $dividerColor;
@@ -378,19 +378,19 @@
             line-height: 40px;
             height: 100%;
             text-align: center;
-            
+
             i {
                 line-height: inherit;
                 font-size: 24px;
             }
         }
-        
+
         .message-input {
             position: relative;
             top: -4px;
             width: calc(100% - 100px);
             display: inline-block;
-            
+
             input {
                 border: 0 none;
                 font-size: 14px;
@@ -422,7 +422,7 @@
         .person-item {
             @include flex();
             @include flex-align-center();
-            
+
             img {
                 margin-right: .5rem;
                 width: 4rem;
@@ -451,14 +451,14 @@
     }
 }
 
-.widget-user-card { 
+.widget-user-card {
     padding: 0;
     text-align: center;
 
     .user-card-header {
         position: relative;
         height: 200px;
-        background-image: url("\#{resource['demo:images/widgets/user-card.jpg']}");
+        background-image: url("../../demo/images/widgets/user-card.jpg");
         background-size: cover;
     }
 

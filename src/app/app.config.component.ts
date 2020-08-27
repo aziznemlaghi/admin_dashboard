@@ -8,10 +8,6 @@ import { AppMainComponent } from './app.main.component';
             <i class="pi pi-cog"></i>
         </a>
         <div class="layout-config" [ngClass]="{'layout-config-active': app.configActive}" (click)="app.onConfigClick($event)">
-            <a style="cursor: pointer" class="layout-config-close" (click)="onConfigCloseClick($event)">
-                <i class="pi pi-times"></i>
-            </a>
-
             <h5>Menu Type</h5>
             <div class="p-field-radiobutton">
                 <p-radioButton name="menuMode" value="static" [(ngModel)]="app.menuMode" inputId="mode1"></p-radioButton>

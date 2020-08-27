@@ -1,119 +1,364 @@
 <div class="layout-dashboard">
-    <div class="p-grid">
-        <div class="p-col-12 p-md-6 p-xl-3">
-            <div class="card no-gutter widget-overview-box widget-overview-box-1">
+	<div class="p-grid">
+		<div class="p-col-12 p-md-6 p-xl-3">
+			<div class="card no-gutter widget-overview-box widget-overview-box-1">
                             <span class="overview-icon">
                                 <i class="pi pi-shopping-cart"></i>
                             </span>
-                <span class="overview-title">Orders</span>
-                <div class="p-grid overview-detail">
-                    <div class="p-col-6">
-                        <div class="overview-number">640</div>
-                        <div class="overview-subtext">Pending</div>
-                    </div>
-                    <div class="p-col-6">
-                        <div class="overview-number">1420</div>
-                        <div class="overview-subtext">Completed</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="p-col-12 p-md-6 p-xl-3">
-            <div class="card no-gutter widget-overview-box widget-overview-box-2">
+				<span class="overview-title">Orders</span>
+				<div class="p-grid overview-detail">
+					<div class="p-col-6">
+						<div class="overview-number">640</div>
+						<div class="overview-subtext">Pending</div>
+					</div>
+					<div class="p-col-6">
+						<div class="overview-number">1420</div>
+						<div class="overview-subtext">Completed</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="p-col-12 p-md-6 p-xl-3">
+			<div class="card no-gutter widget-overview-box widget-overview-box-2">
                             <span class="overview-icon">
                                 <i class="pi pi-dollar"></i>
                             </span>
-                <span class="overview-title">Revenue</span>
-                <div class="p-grid overview-detail">
-                    <div class="p-col-6">
-                        <div class="overview-number">$2,100</div>
-                        <div class="overview-subtext">Expenses</div>
-                    </div>
-                    <div class="p-col-6">
-                        <div class="overview-number">$9,640</div>
-                        <div class="overview-subtext">Income</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="p-col-12 p-md-6 p-xl-3">
-            <div class="card no-gutter widget-overview-box widget-overview-box-3">
+				<span class="overview-title">Revenue</span>
+				<div class="p-grid overview-detail">
+					<div class="p-col-6">
+						<div class="overview-number">$2,100</div>
+						<div class="overview-subtext">Expenses</div>
+					</div>
+					<div class="p-col-6">
+						<div class="overview-number">$9,640</div>
+						<div class="overview-subtext">Income</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="p-col-12 p-md-6 p-xl-3">
+			<div class="card no-gutter widget-overview-box widget-overview-box-3">
                             <span class="overview-icon">
                                 <i class="pi pi-users"></i>
                             </span>
-                <span class="overview-title">Customers</span>
-                <div class="p-grid overview-detail">
-                    <div class="p-col-6">
-                        <div class="overview-number">8272</div>
-                        <div class="overview-subtext">Active</div>
-                    </div>
-                    <div class="p-col-6">
-                        <div class="overview-number">25402</div>
-                        <div class="overview-subtext">Registered</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="p-col-12 p-md-6 p-xl-3">
-            <div class="card no-gutter widget-overview-box widget-overview-box-4">
+				<span class="overview-title">Customers</span>
+				<div class="p-grid overview-detail">
+					<div class="p-col-6">
+						<div class="overview-number">8272</div>
+						<div class="overview-subtext">Active</div>
+					</div>
+					<div class="p-col-6">
+						<div class="overview-number">25402</div>
+						<div class="overview-subtext">Registered</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="p-col-12 p-md-6 p-xl-3">
+			<div class="card no-gutter widget-overview-box widget-overview-box-4">
                             <span class="overview-icon">
                                 <i class="pi pi-comment"></i>
                             </span>
-                <span class="overview-title">Comments</span>
-                <div class="p-grid overview-detail">
-                    <div class="p-col-6">
-                        <div class="overview-number">12</div>
-                        <div class="overview-subtext">New</div>
-                    </div>
-                    <div class="p-col-6">
-                        <div class="overview-number">85</div>
-                        <div class="overview-subtext">Responded</div>
-                    </div>
+				<span class="overview-title">Comments</span>
+				<div class="p-grid overview-detail">
+					<div class="p-col-6">
+						<div class="overview-number">12</div>
+						<div class="overview-subtext">New</div>
+					</div>
+					<div class="p-col-6">
+						<div class="overview-number">85</div>
+						<div class="overview-subtext">Responded</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="p-col-12 p-xl-6">
+			<div class="card no-gutter">
+				<div class="card-header">
+					<h4>Orders</h4>
+					<p-menu #menu [popup]="true" [model]="items"></p-menu>
+					<button pButton type="button" id="orders-button" icon="pi pi-search" class="p-button-secondary"
+							(click)="menu.toggle($event)"></button>
+				</div>
+
+				<div class="p-grid">
+					<div class="p-col-12">
+						<div id="order-tabs-container" class="p-grid order-tabs">
+							<div class="order-tab order-tab-new p-col-6 p-md-3"
+								 (click)="changeDataset($event); chart.refresh()"
+								 data-label="New Orders" data-index="0" data-stroke="#BBDEFB"
+								 data-fill="rgba(100, 181, 246, 0.2)">
+								<i class="pi pi-plus-circle"></i>
+								<span class="order-label">New</span>
+								<i class="stat-detail-icon icon-arrow-right-circle"></i>
+								<img src="assets/demo/images/dashboard/graph-new.svg" alt="diamond-ng"/>
+							</div>
+							<div class="order-tab order-tab-completed p-col-6 p-md-3"
+								 (click)="changeDataset($event); chart.refresh()"
+								 data-label="Completed Orders" data-index="1" data-stroke="#C5CAE9"
+								 data-fill="rgba(121, 134, 203, 0.2)">
+								<i class="pi pi-check-circle"></i>
+								<span class="order-label">Completed</span>
+								<i class="stat-detail-icon icon-arrow-right-circle"></i>
+								<img src="assets/demo/images/dashboard/graph-completed.svg" alt="diamond-ng"/>
+							</div>
+							<div class="order-tab order-tab-refunded p-col-6 p-md-3"
+								 (click)="changeDataset($event); chart.refresh()"
+								 data-label="Refunded Orders" data-index="2" data-stroke="#B2DFDB"
+								 data-fill="rgba(224, 242, 241, 0.5)">
+								<i class="pi pi-refresh"></i>
+								<span class="order-label">Refunded</span>
+								<i class="stat-detail-icon icon-arrow-right-circle"></i>
+								<img src="assets/demo/images/dashboard/graph-refunded.svg" alt="diamond-ng"/>
+							</div>
+							<div class="order-tab order-tab-cancelled p-col-6 p-md-3"
+								 (click)="changeDataset($event); chart.refresh()"
+								 data-label="Cancelled Orders" data-index="3" data-stroke="#B2EBF2"
+								 data-fill="rgba(224, 247, 250, 0.5)">
+								<i class="pi pi-times-circle"></i>
+								<span class="order-label">Cancelled</span>
+								<i class="stat-detail-icon icon-arrow-right-circle"></i>
+								<img src="assets/demo/images/dashboard/graph-cancelled.svg" alt="diamond-ng"/>
+							</div>
+						</div>
+					</div>
+					<div class="p-col-12">
+						<div class="overview-chart">
+							<p-chart #chart type="line" [data]="ordersChart" [options]="ordersChartOptions"
+									 id="order-chart"></p-chart>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="p-col-12 p-xl-6">
+			<div class="card">
+				<div class="card-header">
+					<h4>Recent Sales</h4>
+					<p-dropdown [options]="orderWeek" [(ngModel)]="selectedOrderWeek" optionLabel="name"
+								styleClass="dashbard-demo-dropdown" [ngStyle]="{'min-width': '8rem'}"></p-dropdown>
+				</div>
+
+				<p>Your sales activity over time.</p>
+
+
+				<p-table [value]="products" [paginator]="true" [rows]="5">
+					<ng-template pTemplate="header">
+						<tr>
+							<th pSortableColumn="id">ID
+								<p-sortIcon field="id"></p-sortIcon>
+							</th>
+							<th pSortableColumn="category">Category
+								<p-sortIcon field="category"></p-sortIcon>
+							</th>
+							<th pSortableColumn="price">Price
+								<p-sortIcon field="price"></p-sortIcon>
+							</th>
+							<th pSortableColumn="inventoryStatus">Status
+								<p-sortIcon field="inventoryStatus"></p-sortIcon>
+							</th>
+							<th></th>
+						</tr>
+					</ng-template>
+					<ng-template pTemplate="body" let-product>
+						<tr>
+							<td>{{product.id}}</td>
+							<td>{{product.category}}</td>
+							<td>{{product.price | currency:'USD'}}</td>
+							<td><span
+									[class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+							</td>
+							<td style="text-align: center">
+								<button pButton type="button" icon="pi pi-search"></button>
+							</td>
+						</tr>
+					</ng-template>
+				</p-table>
+			</div>
+		</div>
+
+		<div class="p-col-12 p-lg-4">
+			<div class="card widget-tasks">
+				<h4>Tasks</h4>
+				<p>Overview of your pending tasks.</p>
+				<div>
+					<div class="task task-1">
+						<div class="task-name"><span>12 Orders</span> to fulfill</div>
+						<div class="task-progress">
+							<div></div>
+						</div>
+					</div>
+					<div class="task task-2">
+						<div class="task-name"><span>40+ Payments</span> to withdraw</div>
+						<div class="task-progress">
+							<div></div>
+						</div>
+					</div>
+					<div class="task task-3">
+						<div class="task-name"><span>4 Reports</span> to revise</div>
+						<div class="task-progress">
+							<div></div>
+						</div>
+					</div>
+					<div class="task task-4">
+						<div class="task-name"><span>6 Questions</span> to respond</div>
+						<div class="task-progress">
+							<div></div>
+						</div>
+					</div>
+					<div class="task task-5">
+						<div class="task-name"><span>2 Chargebacks</span> to review</div>
+						<div class="task-progress">
+							<div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<h4>Best Sellers</h4>
+				<p>Most popular products from your collection.</p>
+
+				<ul class="widget-image-list">
+					<li>
+						<span>Product</span>
+						<span>Sales</span>
+					</li>
+					<li>
+                        <span>
+                            <img src="assets/demo/images/product/bamboo-watch.jpg" alt="diamond-layout"/>
+                            <span>Bamboo Watch</span>
+                        </span>
+						<span class="listitem-value">82</span>
+					</li>
+					<li>
+                        <span>
+                            <img src="assets/demo/images/product/blue-band.jpg" alt="diamond-layout"/>
+                            <span>Blue Band</span>
+                        </span>
+						<span class="listitem-value">75</span>
+					</li>
+					<li>
+                        <span>
+                            <img src="assets/demo/images/product/game-controller.jpg" alt="diamond-layout"/>
+                            <span>Game Controller</span>
+                        </span>
+						<span class="listitem-value">64</span>
+					</li>
+					<li>
+                        <span>
+                            <img src="assets/demo/images/product/lime-band.jpg" alt="diamond-layout"/>
+                            <span>Lime Band</span>
+                        </span>
+						<span class="listitem-value">62</span>
+					</li>
+					<li>
+                        <span>
+                            <img src="assets/demo/images/product/gold-phone-case.jpg" alt="diamond-layout"/>
+                            <span>Phone Case</span>
+                        </span>
+						<span class="listitem-value">55</span>
+					</li>
+					<li>
+                        <span>
+                            <img src="assets/demo/images/product/green-t-shirt.jpg" alt="diamond-layout"/>
+                            <span>Green T-Shirt</span>
+                        </span>
+						<span class="listitem-value">48</span>
+					</li>
+					<li>
+                        <span>
+                            <img src="assets/demo/images/product/purple-t-shirt.jpg" alt="diamond-layout"/>
+                            <span>Purple T-Shirt</span>
+                        </span>
+						<span class="listitem-value">32</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+        <div class="p-col-12 p-lg-8">
+            <div class="card revenue">
+                <h4>Revenue Stream</h4>
+                <p>Comparison of your revenue sources.</p>
+                <div class="revenue-chart-container">
+                    <p-chart type="pie" id="revenue-chart" [data]="revenueChart"></p-chart>
                 </div>
             </div>
-        </div>
 
-
-        <div class="p-col-12 p-xl-6">
-            <div class="card no-gutter">
-                <div class="card-header">
-                    <h4>Orders</h4>
-                </div>
-
-                <div class="p-grid">
-                    <div class="p-col-12">
-                        <div id="order-tabs-container" class="p-grid order-tabs">
-                            <div class="order-tab order-tab-new p-col-6 p-md-3" data-label="New Orders" data-index="0" data-stroke="#BBDEFB" data-fill="rgba(100, 181, 246, 0.2)">
-                                <i class="pi pi-plus-circle"></i>
-                                <span class="order-label">New</span>
-                                <i class="stat-detail-icon icon-arrow-right-circle"></i>
-                                <img src="assets/demo/images/dashboard/graph-new.svg" alt="diamond-ng" />
-                            </div>
-                            <div class="order-tab order-tab-completed p-col-6 p-md-3" data-label="Completed Orders" data-index="1" data-stroke="#C5CAE9" data-fill="rgba(121, 134, 203, 0.2)">
-                                <i class="pi pi-check-circle"></i>
-                                <span class="order-label">Completed</span>
-                                <i class="stat-detail-icon icon-arrow-right-circle"></i>
-                                <img src="assets/demo/images/dashboard/graph-completed.svg" alt="diamond-ng" />
-                            </div>
-                            <div class="order-tab order-tab-refunded p-col-6 p-md-3" data-label="Refunded Orders" data-index="2" data-stroke="#B2DFDB" data-fill="rgba(224, 242, 241, 0.5)">
-                                <i class="pi pi-refresh"></i>
-                                <span class="order-label">Refunded</span>
-                                <i class="stat-detail-icon icon-arrow-right-circle"></i>
-                                <img src="assets/demo/images/dashboard/graph-refunded.svg" alt="diamond-ng" />
-                            </div>
-                            <div class="order-tab order-tab-cancelled p-col-6 p-md-3" data-label="Cancelled Orders" data-index="3" data-stroke="#B2EBF2" data-fill="rgba(224, 247, 250, 0.5)">
-                                <i class="pi pi-times-circle"></i>
-                                <span class="order-label">Cancelled</span>
-                                <i class="stat-detail-icon icon-arrow-right-circle"></i>
-                                <img src="assets/demo/images/dashboard/graph-cancelled.svg" alt="diamond-ng" />
+            <div class="card">
+                <h4>Team Members</h4>
+                <ul class="widget-person-list">
+                    <li>
+                        <div class="person-item">
+                            <img src="assets/demo/images/avatar/amyelsner.png" alt="diamond-layout" />
+                            <div class="person-info">
+                                <div class="person-name">Amy Elsner</div>
+                                <div class="person-subtext">Accounting</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="p-col-12">
-
-                    </div>
-                </div>
+                        <div class="person-actions">
+                            <button pButton type="button" class="p-button-rounded p-button-success" icon="pi pi-envelope"></button>
+                            <button pButton type="button" class="p-button-rounded p-button-warning" icon="pi pi-cog"></button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-item">
+                            <img src="assets/demo/images/avatar/annafali.png" alt="diamond-layout" />
+                            <div class="person-info">
+                                <div class="person-name">Anna Fali</div>
+                                <div class="person-subtext">Procurement</div>
+                            </div>
+                        </div>
+                        <div class="person-actions">
+                            <button pButton type="button" class="p-button-rounded p-button-success" icon="pi pi-envelope" ></button>
+                            <button pButton type="button" class="p-button-rounded p-button-warning" icon="pi pi-cog" ></button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-item">
+                            <img src="assets/demo/images/avatar/bernardodominic.png" alt="diamond-layout" />
+                            <div class="person-info">
+                                <div class="person-name">Bernardo Dominic</div>
+                                <div class="person-subtext">Finance</div>
+                            </div>
+                        </div>
+                        <div class="person-actions">
+                            <button pButton type="button" class="p-button-rounded p-button-success" icon="pi pi-envelope" ></button>
+                            <button pButton type="button" class="p-button-rounded p-button-warning" icon="pi pi-cog" ></button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-item">
+                            <img src="assets/demo/images/avatar/ivanmagalhaes.png" alt="diamond-layout" />
+                            <div class="person-info">
+                                <div class="person-name">Ivan Magalhaes</div>
+                                <div class="person-subtext">Sales</div>
+                            </div>
+                        </div>
+                        <div class="person-actions">
+                            <button pButton type="button" class="p-button-rounded p-button-success" icon="pi pi-envelope" ></button>
+                            <button pButton type="button" class="p-button-rounded p-button-warning" icon="pi pi-cog" ></button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="person-item">
+                            <img src="assets/demo/images/avatar/xuxuefeng.png" alt="diamond-layout" />
+                            <div class="person-info">
+                                <div class="person-name">Xuxue Feng</div>
+                                <div class="person-subtext">Management</div>
+                            </div>
+                        </div>
+                        <div class="person-actions">
+                            <button pButton type="button" class="p-button-rounded p-button-success" icon="pi pi-envelope" ></button>
+                            <button pButton type="button" class="p-button-rounded p-button-warning" icon="pi pi-cog" ></button>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+	</div>
 </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {MenuItem, MegaMenuItem} from 'primeng/api';
 
 @Component({
     templateUrl: './menusdemo.component.html',
@@ -20,305 +20,422 @@ export class MenusDemoComponent implements OnInit {
 
     tabMenuItems: MenuItem[];
 
-    megaMenuItems: MenuItem[];
+    megaMenuItems: MegaMenuItem[];
 
     panelMenuItems: MenuItem[];
 
     stepsItems: MenuItem[];
 
-    ngOnInit() {
-        this.breadcrumbItems = [];
-        this.breadcrumbItems.push({ label: 'Sports' });
-        this.breadcrumbItems.push({ label: 'Basketball' });
-        this.breadcrumbItems.push({ label: 'NBA' });
-        this.breadcrumbItems.push({ label: 'Teams' });
-        this.breadcrumbItems.push({ label: 'L.A. LAkers' });
-        this.breadcrumbItems.push({ label: 'Roster' });
-        this.breadcrumbItems.push({ label: 'Kobe Bryant'});
+    slideItems: MenuItem[];
 
-        this.tabMenuItems = [
-            {label: 'Home', icon: 'pi pi-fw pi-home'},
-            {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
-            {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
-            {label: 'Documentation', icon: 'pi pi-fw pi-file'},
-            {label: 'Settings', icon: 'pi pi-fw pi-cog'}
-        ];
+    menuItems: MenuItem[];
+
+    ngOnInit() {
 
         this.tieredItems = [
             {
-                label: 'File',
-                icon: 'pi pi-fw pi-file',
+                label: 'Customers',
+                icon: 'pi pi-fw pi-table',
                 items: [
                     {
                         label: 'New',
                         icon: 'pi pi-fw pi-plus',
                         items: [
                             {
-                                label: 'Bookmark',
-                                icon: 'pi pi-fw pi-bookmark'
+                                label: 'Customer',
+                                icon: 'pi pi-fw pi-plus'
                             },
                             {
-                                label: 'Video',
-                                icon: 'pi pi-fw pi-video'
+                                label: 'Duplicate',
+                                icon: 'pi pi-fw pi-copy'
                             },
 
                         ]
                     },
                     {
-                        label: 'Delete',
-                        icon: 'pi pi-fw pi-trash'
-                    },
-                    {
-                        separator: true
-                    },
-                    {
-                        label: 'Export',
-                        icon: 'pi pi-fw pi-external-link'
+                        label: 'Edit',
+                        icon: 'pi pi-fw pi-user-edit'
                     }
                 ]
             },
             {
-                label: 'Edit',
-                icon: 'pi pi-fw pi-pencil',
+                label: 'Orders',
+                icon: 'pi pi-fw pi-shopping-cart',
                 items: [
                     {
-                        label: 'Left',
-                        icon: 'pi pi-fw pi-align-left'
-                    },
-                    {
-                        label: 'Right',
-                        icon: 'pi pi-fw pi-align-right'
-                    },
-                    {
-                        label: 'Center',
-                        icon: 'pi pi-fw pi-align-center'
-                    },
-                    {
-                        label: 'Justify',
-                        icon: 'pi pi-fw pi-align-justify'
-                    },
-
-                ]
-            },
-            {
-                label: 'Users',
-                icon: 'pi pi-fw pi-user',
-                items: [
-                    {
-                        label: 'New',
-                        icon: 'pi pi-fw pi-user-plus',
-
-                    },
-                    {
-                        label: 'Delete',
-                        icon: 'pi pi-fw pi-user-minus',
-
+                        label: 'View',
+                        icon: 'pi pi-fw pi-list'
                     },
                     {
                         label: 'Search',
-                        icon: 'pi pi-fw pi-users',
-                        items: [
-                            {
-                                label: 'Filter',
-                                icon: 'pi pi-fw pi-filter',
-                                items: [
-                                    {
-                                        label: 'Print',
-                                        icon: 'pi pi-fw pi-print'
-                                    }
-                                ]
-                            },
-                            {
-                                icon: 'pi pi-fw pi-bars',
-                                label: 'List'
-                            }
-                        ]
+                        icon: 'pi pi-fw pi-search'
                     }
+
                 ]
             },
             {
-                label: 'Events',
-                icon: 'pi pi-fw pi-calendar',
+                label: 'Shipments',
+                icon: 'pi pi-fw pi-envelope',
                 items: [
                     {
-                        label: 'Edit',
-                        icon: 'pi pi-fw pi-pencil',
-                        items: [
-                            {
-                                label: 'Save',
-                                icon: 'pi pi-fw pi-calendar-plus'
-                            },
-                            {
-                                label: 'Delete',
-                                icon: 'pi pi-fw pi-calendar-minus'
-                            }
-                        ]
+                        label: 'Tracker',
+                        icon: 'pi pi-fw pi-compass',
+
                     },
                     {
-                        label: 'Archieve',
-                        icon: 'pi pi-fw pi-calendar-times',
-                        items: [
-                            {
-                                label: 'Remove',
-                                icon: 'pi pi-fw pi-calendar-minus'
-                            }
-                        ]
+                        label: 'Map',
+                        icon: 'pi pi-fw pi-map-marker',
+
+                    },
+                    {
+                        label: 'Manage',
+                        icon: 'pi pi-fw pi-pencil'
                     }
                 ]
             },
             {
+                label: 'Profile',
+                icon: 'pi pi-fw pi-user',
+                items: [
+                    {
+                        label: 'Settings',
+                        icon: 'pi pi-fw pi-cog'
+                    },
+                    {
+                        label: 'Billing',
+                        icon: 'pi pi-fw pi-file'
+                    }
+                ]
+            },
+            { separator: true },
+            {
                 label: 'Quit',
-                icon: 'pi pi-fw pi-power-off'
+                icon: 'pi pi-fw pi-sign-out'
             }
         ];
 
         this.items = [
             {
-                label: 'Options',
-                items: [{label: 'New', icon: 'pi pi-fw pi-plus'},
-                    {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'http://primetek.com.tr'}]
+                label: 'Customers',
+                items: [
+                    {
+                        label: 'New',
+                        icon: 'pi pi-fw pi-plus'
+                    },
+                    {
+                        label: 'Edit',
+                        icon: 'pi pi-fw pi-user-edit'
+                    }
+                ]
             },
             {
-                label: 'Account',
-                items: [{label: 'Options', icon: 'pi pi-fw pi-cog'},
-                    {label: 'Sign Out', icon: 'pi pi-fw pi-power-off'} ]
+                label: 'Orders',
+                items: [
+                    {
+                        label: 'View',
+                        icon: 'pi pi-fw pi-list'
+                    },
+                    {
+                        label: 'Search',
+                        icon: 'pi pi-fw pi-search'
+                    }
+
+                ]
+            },
+            {
+                label: 'Shipments',
+                items: [
+                    {
+                        label: 'Tracker',
+                        icon: 'pi pi-fw pi-compass',
+
+                    },
+                    {
+                        label: 'Map',
+                        icon: 'pi pi-fw pi-map-marker',
+
+                    },
+                    {
+                        label: 'Manage',
+                        icon: 'pi pi-fw pi-pencil'
+                    }
+                ]
             }
+        ];
+
+        this.menuItems = [
+            {
+                label: 'Save', icon: 'pi pi-fw pi-check'
+            },
+            {
+                label: 'Update', icon: 'pi pi-fw pi-refresh'
+            },
+            {
+                label: 'Delete', icon: 'pi pi-fw pi-trash'
+            },
+            {
+                separator: true
+            },
+            {
+                label: 'Quit', icon: 'pi pi-fw pi-sign-out'
+            },
+        ];
+
+        this.slideItems = [
+            {
+                label: 'Customers',
+                icon: 'pi pi-fw pi-table',
+                items: [
+                    {
+                        label: 'New',
+                        icon: 'pi pi-fw pi-plus'
+                    },
+                    {
+                        label: 'Edit',
+                        icon: 'pi pi-fw pi-user-edit'
+                    }
+                ]
+            },
+            {
+                label: 'Orders',
+                icon: 'pi pi-fw pi-shopping-cart',
+                items: [
+                    {
+                        label: 'View',
+                        icon: 'pi pi-fw pi-list'
+                    },
+                    {
+                        label: 'Search',
+                        icon: 'pi pi-fw pi-search'
+                    }
+
+                ]
+            },
+            {
+                label: 'Shipments',
+                icon: 'pi pi-fw pi-envelope',
+                items: [
+                    {
+                        label: 'Tracker',
+                        icon: 'pi pi-fw pi-compass',
+
+                    },
+                    {
+                        label: 'Map',
+                        icon: 'pi pi-fw pi-map-marker',
+
+                    },
+                    {
+                        label: 'Manage',
+                        icon: 'pi pi-fw pi-pencil'
+                    }
+                ]
+            },
+            {
+                label: 'Profile',
+                icon: 'pi pi-fw pi-user',
+                items: [
+                    {
+                        label: 'Settings',
+                        icon: 'pi pi-fw pi-cog'
+                    },
+                    {
+                        label: 'Billing',
+                        icon: 'pi pi-fw pi-file'
+                    }
+                ]
+            }
+        ];
+
+        this.breadcrumbItems = [];
+        this.breadcrumbItems.push({ label: 'Electronics' });
+        this.breadcrumbItems.push({ label: 'Computer' });
+        this.breadcrumbItems.push({ label: 'Notebook' });
+        this.breadcrumbItems.push({ label: 'Accessories' });
+        this.breadcrumbItems.push({ label: 'Backpacks' });
+        this.breadcrumbItems.push({ label: 'Item' });
+
+        this.tabMenuItems = [
+            {label: 'Overview', icon: 'pi pi-fw pi-home'},
+            {label: 'Members', icon: 'pi pi-fw pi-users'},
+            {label: 'Sales', icon: 'pi pi-fw pi-shopping-cart'},
+            {label: 'Profile', icon: 'pi pi-fw pi-user'},
+            {label: 'Settings', icon: 'pi pi-fw pi-cog'}
         ];
 
         this.megaMenuItems = [
             {
-                label: 'Videos', icon: 'pi pi-fw pi-video'
+                label: 'Fashion', icon: 'pi pi-fw pi-tag',
+                items: [
+                    [
+                        {
+                            label: 'Women',
+                            items: [{label: 'Women Item'}, {label: 'Women Item'}, {label: 'Women Item'}]
+                        },
+                        {
+                            label: 'Men',
+                            items: [{label: 'Men Item'}, {label: 'Men Item'}, {label: 'Men Item'}]
+                        }
+                    ],
+                    [
+                        {
+                            label: 'Kids',
+                            items: [{label: 'Kids Item'}, {label: 'Kids Item'}]
+                        },
+                        {
+                            label: 'Luggage',
+                            items: [{label: 'Luggage Item'}, {label: 'Luggage Item'}, {label: 'Luggage Item'}]
+                        }
+                    ]
+                ]
             },
             {
-                label: 'Users', icon: 'pi pi-fw pi-users',
+                label: 'Electronics', icon: 'pi pi-fw pi-desktop',
+                items: [
+                    [
+                        {
+                            label: 'Computer',
+                            items: [{label: 'Computer Item'}, {label: 'Computer Item'}]
+                        },
+                        {
+                            label: 'Camcorder',
+                            items: [{label: 'Camcorder Item'}, {label: 'Camcorder Item'}, {label: 'Camcorder Item'}]
+                        }
+                    ],
+                    [
+                        {
+                            label: 'TV',
+                            items: [{label: 'TV Item'}, {label: 'TV Item'}]
+                        },
+                        {
+                            label: 'Audio',
+                            items: [{label: 'Audio Item'}, {label: 'Audio Item'}, {label: 'Audio Item'}]
+                        }
+                    ],
+                    [
+                        {
+                            label: 'Sports.7',
+                            items: [{label: 'Sports.7.1'}, {label: 'Sports.7.2'}]
+                        }
+                    ]
+                ]
             },
             {
-                label: 'Events', icon: 'pi pi-fw pi-calendar',
+                label: 'Furniture', icon: 'pi pi-fw pi-image',
+                items: [
+                    [
+                        {
+                            label: 'Living Room',
+                            items: [{label: 'Living Room Item'}, {label: 'Living Room Item'}]
+                        },
+                        {
+                            label: 'Kitchen',
+                            items: [{label: 'Kitchen Item'}, {label: 'Kitchen Item'}, {label: 'Kitchen Item'}]
+                        }
+                    ],
+                    [
+                        {
+                            label: 'Bedroom',
+                            items: [{label: 'Bedroom Item'}, {label: 'Bedroom Item'}]
+                        },
+                        {
+                            label: 'Outdoor',
+                            items: [{label: 'Outdoor Item'}, {label: 'Outdoor Item'}, {label: 'Outdoor Item'}]
+                        }
+                    ]
+                ]
             },
             {
-                label: 'Settings', icon: 'pi pi-fw pi-cog',
-            }
+                label: 'Sports', icon: 'pi pi-fw pi-star-o',
+                items: [
+                    [
+                        {
+                            label: 'Basketball',
+                            items: [{label: 'Basketball Item'}, {label: 'Basketball Item'}]
+                        },
+                        {
+                            label: 'Football',
+                            items: [{label: 'Football Item'}, {label: 'Football Item'}, {label: 'Football Item'}]
+                        }
+                    ],
+                    [
+                        {
+                            label: 'Tennis',
+                            items: [{label: 'Tennis Item'}, {label: 'Tennis Item'}]
+                        }
+                    ]
+                ]
+            },
         ];
 
         this.panelMenuItems = [
             {
-                label: 'Documents',
-                icon: 'pi pi-fw pi-file',
+                label: 'Customers',
                 items: [
                     {
                         label: 'New',
                         icon: 'pi pi-fw pi-plus',
                         items: [
                             {
-                                label: 'Bookmark',
-                                icon: 'pi pi-fw pi-bookmark'
+                                label: 'Customer',
+                                icon: 'pi pi-fw pi-plus'
                             },
                             {
-                                label: 'Video',
-                                icon: 'pi pi-fw pi-video'
+                                label: 'Duplicate',
+                                icon: 'pi pi-fw pi-copy'
                             },
 
                         ]
                     },
                     {
-                        label: 'Delete',
-                        icon: 'pi pi-fw pi-trash'
-                    },
-                    {
-                        separator: true
-                    },
-                    {
-                        label: 'Export',
-                        icon: 'pi pi-fw pi-external-link'
+                        label: 'Edit',
+                        icon: 'pi pi-fw pi-user-edit'
                     }
                 ]
             },
             {
-                label: 'Manage',
-                icon: 'pi pi-fw pi-pencil',
+                label: 'Orders',
                 items: [
                     {
-                        label: 'Left',
-                        icon: 'pi pi-fw pi-align-left'
-                    },
-                    {
-                        label: 'Right',
-                        icon: 'pi pi-fw pi-align-right'
-                    },
-                    {
-                        label: 'Center',
-                        icon: 'pi pi-fw pi-align-center'
-                    },
-                    {
-                        label: 'Justify',
-                        icon: 'pi pi-fw pi-align-justify'
-                    },
-
-                ]
-            },
-            {
-                label: 'Accounts',
-                icon: 'pi pi-fw pi-user',
-                items: [
-                    {
-                        label: 'New',
-                        icon: 'pi pi-fw pi-user-plus',
-
-                    },
-                    {
-                        label: 'Delete',
-                        icon: 'pi pi-fw pi-user-minus',
-
+                        label: 'View',
+                        icon: 'pi pi-fw pi-list'
                     },
                     {
                         label: 'Search',
-                        icon: 'pi pi-fw pi-users',
-                        items: [
-                            {
-                                label: 'Filter',
-                                icon: 'pi pi-fw pi-filter',
-                                items: [
-                                    {
-                                        label: 'Print',
-                                        icon: 'pi pi-fw pi-print'
-                                    }
-                                ]
-                            },
-                            {
-                                icon: 'pi pi-fw pi-bars',
-                                label: 'List'
-                            }
-                        ]
+                        icon: 'pi pi-fw pi-search'
+                    }
+
+                ]
+            },
+            {
+                label: 'Shipments',
+                items: [
+                    {
+                        label: 'Tracker',
+                        icon: 'pi pi-fw pi-compass',
+
+                    },
+                    {
+                        label: 'Map',
+                        icon: 'pi pi-fw pi-map-marker',
+
+                    },
+                    {
+                        label: 'Manage',
+                        icon: 'pi pi-fw pi-pencil'
                     }
                 ]
             },
             {
-                label: 'Calendar',
-                icon: 'pi pi-fw pi-calendar',
+                label: 'Profile',
                 items: [
                     {
-                        label: 'Edit',
-                        icon: 'pi pi-fw pi-pencil',
-                        items: [
-                            {
-                                label: 'Save',
-                                icon: 'pi pi-fw pi-calendar-plus'
-                            },
-                            {
-                                label: 'Delete',
-                                icon: 'pi pi-fw pi-calendar-minus'
-                            }
-                        ]
+                        label: 'Settings',
+                        icon: 'pi pi-fw pi-cog'
                     },
                     {
-                        label: 'Archieve',
-                        icon: 'pi pi-fw pi-calendar-times',
-                        items: [
-                            {
-                                label: 'Remove',
-                                icon: 'pi pi-fw pi-calendar-minus'
-                            }
-                        ]
+                        label: 'Billing',
+                        icon: 'pi pi-fw pi-file'
                     }
                 ]
             }
