@@ -69,7 +69,7 @@ html {
   background: #b6dcff;
 }
 .landing-body .landing-header {
-  background-image: url(/diamond/javax.faces.resource/images/pages/landing/bg-header.svg.xhtml?ln=diamond-layout);
+  background-image: url("../../layout/images/pages/landing/bg-header.svg");
   min-height: 520px;
   background-size: cover;
   background-position: 0% bottom;
@@ -352,7 +352,7 @@ html {
 }
 .landing-body .landing-contact {
   padding: 80px 8% 24px;
-  background-image: url(/diamond/javax.faces.resource/images/pages/landing/bg-contact.svg.xhtml?ln=diamond-layout);
+  background-image: url("../../layout/images/pages/landing/bg-contact.svg");
   min-height: 520px;
   background-size: cover;
   background-position: 0 top;
