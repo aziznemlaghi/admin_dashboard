@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './formlayoutdemo.component.html'
@@ -22,4 +23,10 @@ export class FormLayoutDemoComponent {
     city1: any = null;
 
     city2: any = null;
+
+    constructor(private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Form Layout'}
+        ]);
+    }
 }

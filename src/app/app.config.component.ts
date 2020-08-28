@@ -52,15 +52,10 @@ import { AppMainComponent } from './app.main.component';
 
             <hr />
 
-            <h5>Ripple Effect</h5>
-            <p-inputSwitch [(ngModel)]="app.ripple"></p-inputSwitch>
-
-            <hr />
-
             <h5>Menu Themes</h5>
             <div class="layout-themes" *ngIf="app.colorScheme === 'light'">
                 <div *ngFor="let theme of menuThemes">
-                    <a style="cursor: pointer" (click)="changeMenuTheme(theme.name, theme.logoColor, theme.componentTheme)" [style]="{'background-color': theme.color}"></a>
+                    <a style="cursor: pointer" (click)="changeMenuTheme(theme.name, theme.logoColor, theme.componentTheme)" [ngStyle]="{'background-color': theme.color}"></a>
                 </div>
             </div>
             <div *ngIf="app.colorScheme !== 'light'">
@@ -72,7 +67,7 @@ import { AppMainComponent } from './app.main.component';
             <h5>Component Themes</h5>
             <div class="layout-themes">
                 <div *ngFor="let theme of componentThemes">
-                    <a style="cursor: pointer" (click)="changeComponentTheme(theme.name)" [style]="{'background-color': theme.color}"></a>
+                    <a style="cursor: pointer" (click)="changeComponentTheme(theme.name)" [ngStyle]="{'background-color': theme.color}"></a>
                 </div>
             </div>
         </div>

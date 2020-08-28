@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {BreadcrumbService} from '../breadcrumb.service';
 
 @Component({
     templateUrl: './text.component.html',
@@ -8,4 +9,11 @@ import {Component} from '@angular/core';
         }
     `]
 })
-export class TextComponent {}
+export class TextComponent {
+
+    constructor(private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Text'}
+        ]);
+    }
+}

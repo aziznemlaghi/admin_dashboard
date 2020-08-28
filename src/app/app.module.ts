@@ -77,10 +77,6 @@ import {AppCodeModule} from './app.code.component';
 import {AppComponent} from './app.component';
 import {AppMainComponent} from './app.main.component';
 import {AppConfigComponent} from './app.config.component';
-import {AppNotfoundComponent} from './pages/app.notfound.component';
-import {AppErrorComponent} from './pages/app.error.component';
-import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
-import {AppLoginComponent} from './pages/app.login.component';
 import {AppRightmenuComponent} from './app.rightmenu.component';
 import {AppMenuComponent} from './app.menu.component';
 import {AppMenuitemComponent} from './app.menuitem.component';
@@ -111,10 +107,15 @@ import {IconsComponent} from './utilities/icons.component';
 import {WidgetsComponent} from './utilities/widgets.component';
 import {SpacingComponent} from './utilities/spacing.component';
 import {TypographyComponent} from './utilities/typography.component';
+import {TextComponent} from './utilities/text.component';
 import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
+import {AppNotfoundComponent} from './pages/app.notfound.component';
+import {AppErrorComponent} from './pages/app.error.component';
+import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
+import {AppLoginComponent} from './pages/app.login.component';
 
 import {CountryService} from './demo/service/countryservice';
 import {CustomerService} from './demo/service/customerservice';
@@ -123,8 +124,8 @@ import {IconService} from './demo/service/iconservice';
 import {NodeService} from './demo/service/nodeservice';
 import {PhotoService} from './demo/service/photoservice';
 import {ProductService} from './demo/service/productservice';
+import {BreadcrumbService} from './breadcrumb.service';
 import {MenuService} from './app.menu.service';
-import {TextComponent} from './utilities/text.component';
 
 @NgModule({
     imports: [
@@ -248,7 +249,8 @@ import {TextComponent} from './utilities/text.component';
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
-        CountryService, CustomerService, EventService, IconService, NodeService, PhotoService, ProductService, MenuService
+        CountryService, CustomerService, EventService, IconService, NodeService,
+        PhotoService, ProductService, MenuService, BreadcrumbService
     ],
     bootstrap: [AppComponent]
 })

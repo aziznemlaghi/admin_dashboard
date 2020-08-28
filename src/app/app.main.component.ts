@@ -6,7 +6,7 @@ import { PrimeNGConfig } from 'primeng/api';
     selector: 'app-main',
     templateUrl: './app.main.component.html',
 })
-export class AppMainComponent implements OnInit{
+export class AppMainComponent {
     menuMode = 'static';
 
     colorScheme = 'light';
@@ -47,13 +47,7 @@ export class AppMainComponent implements OnInit{
 
     inputStyle = 'outlined';
 
-    ripple = false;
-
-    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig) { }
-
-    ngOnInit(): void {
-        this.primengConfig.ripple = true;
-    }
+    constructor(private menuService: MenuService) { }
 
     onLayoutClick() {
         if (!this.searchClick) {

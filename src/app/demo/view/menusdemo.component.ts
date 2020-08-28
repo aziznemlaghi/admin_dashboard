@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {MenuItem, MegaMenuItem} from 'primeng/api';
+import {MegaMenuItem, MenuItem} from 'primeng/api';
+import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './menusdemo.component.html',
@@ -29,6 +30,12 @@ export class MenusDemoComponent implements OnInit {
     slideItems: MenuItem[];
 
     menuItems: MenuItem[];
+
+    constructor(private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Menu'}
+        ]);
+    }
 
     ngOnInit() {
 

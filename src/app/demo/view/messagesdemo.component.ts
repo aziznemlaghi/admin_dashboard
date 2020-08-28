@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Message } from 'primeng/api';
-import { MessageService } from 'primeng/api';
+import {Component} from '@angular/core';
+import {Message, MessageService} from 'primeng/api';
+import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './messagesdemo.component.html',
@@ -10,9 +10,9 @@ import { MessageService } from 'primeng/api';
             min-width: 8em;
         }
 
-        :host ::ng-deep .ui-message {
-            margin-left: .25em;
-        }
+		:host ::ng-deep .ui-message {
+			margin-left: .25em;
+		}
     `],
     providers: [MessageService]
 })
@@ -20,14 +20,18 @@ export class MessagesDemoComponent {
 
     msgs: Message[] = [];
 
-    constructor(private service: MessageService) {}
+    constructor(private service: MessageService, private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Messages'}
+        ]);
+    }
 
     showInfoViaToast() {
-        this.service.add({ key: 'tst', severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks' });
+        this.service.add({key: 'tst', severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks'});
     }
 
     showWarnViaToast() {
-        this.service.add({ key: 'tst', severity: 'warn', summary: 'Warn Message', detail: 'There are unsaved changes' });
+        this.service.add({key: 'tst', severity: 'warn', summary: 'Warn Message', detail: 'There are unsaved changes'});
     }
 
     showErrorViaToast() {
@@ -36,14 +40,6 @@ export class MessagesDemoComponent {
 
     showSuccessViaToast() {
         this.service.add({ key: 'tst', severity: 'success', summary: 'Success Message', detail: 'Message sent' });
-    }
-
-    showMultipleViaToast() {
-        this.service.addAll([
-            { key: 'tst', severity: 'info', summary: 'Message 1', detail: 'PrimeNG rocks' },
-            { key: 'tst', severity: 'info', summary: 'Message 2', detail: 'PrimeReact rocks' },
-            { key: 'tst', severity: 'info', summary: 'Message 3', detail: 'PrimeFaces rocks' }
-        ]);
     }
 
     showInfoViaMessages() {
@@ -64,12 +60,5 @@ export class MessagesDemoComponent {
     showSuccessViaMessages() {
         this.msgs = [];
         this.msgs.push({ severity: 'success', summary: 'Success Message', detail: 'Message sent' });
-    }
-
-    showMultipleViaMessages() {
-        this.msgs = [];
-        this.msgs.push({ severity: 'info', summary: 'Message 1', detail: 'PrimeNG rocks' });
-        this.msgs.push({ severity: 'info', summary: 'Message 2', detail: 'PrimeUI rocks' });
-        this.msgs.push({ severity: 'info', summary: 'Message 3', detail: 'PrimeFaces rocks' });
     }
 }

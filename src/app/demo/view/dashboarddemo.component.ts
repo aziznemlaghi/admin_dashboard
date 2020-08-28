@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
-import { Product } from '../domain/product';
-import { ProductService } from '../service/productservice';
+import {Component, OnInit} from '@angular/core';
+import {MenuItem} from 'primeng/api';
+import {Product} from '../domain/product';
+import {ProductService} from '../service/productservice';
+import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './dashboard.component.html',
@@ -25,16 +26,20 @@ export class DashboardDemoComponent implements OnInit {
 
     revenueChart: any;
 
-    constructor(private productService: ProductService) {}
+    constructor(private productService: ProductService, private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Dashboard', routerLink: ['/']}
+        ]);
+    }
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
 
         this.cols = [
-            { field: 'vin', header: 'Vin' },
-            { field: 'year', header: 'Year' },
-            { field: 'brand', header: 'Brand' },
-            { field: 'color', header: 'Color' }
+            {field: 'vin', header: 'Vin'},
+            {field: 'year', header: 'Year'},
+            {field: 'brand', header: 'Brand'},
+            {field: 'color', header: 'Color'}
         ];
 
         this.items = [{

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './chartsdemo.component.html'
@@ -14,6 +15,12 @@ export class ChartsDemoComponent implements OnInit {
     polarData: any;
 
     radarData: any;
+
+    constructor(private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Charts'}
+        ]);
+    }
 
     ngOnInit() {
         this.lineData = {

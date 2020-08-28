@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {BreadcrumbService} from '../breadcrumb.service';
 
 @Component({
     templateUrl: './spacing.component.html',
@@ -15,4 +16,11 @@ import {Component} from '@angular/core';
         margin: 0 2px;
     }`]
 })
-export class SpacingComponent {}
+export class SpacingComponent {
+
+    constructor(private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Spacing'}
+        ]);
+    }
+}

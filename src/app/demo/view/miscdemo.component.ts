@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './miscdemo.component.html',
@@ -9,16 +10,22 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 		:host ::ng-deep .misc-demo .badges .p-badge {
 		    margin-right: .5rem;
-	    }
+		}
 
 		:host ::ng-deep .misc-demo .badges .p-tag {
-		    margin-right: .5rem;
-	    }
+			margin-right: .5rem;
+		}
     `]
 })
-export class MiscDemoComponent implements OnInit{
+export class MiscDemoComponent implements OnInit {
 
     value = 0;
+
+    constructor(private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Misc'}
+        ]);
+    }
 
     ngOnInit() {
         const interval = setInterval(() => {

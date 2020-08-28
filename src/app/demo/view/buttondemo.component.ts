@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import {Component, OnInit} from '@angular/core';
+import {MenuItem} from 'primeng/api';
+import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './buttondemo.component.html'
@@ -7,6 +8,12 @@ import { MenuItem } from 'primeng/api';
 export class ButtonDemoComponent implements OnInit {
 
     items: MenuItem[];
+
+    constructor(private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Button'}
+        ]);
+    }
 
     ngOnInit() {
         this.items = [
