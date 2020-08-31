@@ -16,6 +16,12 @@ export class AppCalendarComponent implements OnInit{
 
     header: any;
 
+    eventDialog: boolean;
+
+    changedEvent: any;
+
+    clickedEvent = null;
+
     constructor(private eventService: EventService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             {label: 'Calendar'}
@@ -24,6 +30,7 @@ export class AppCalendarComponent implements OnInit{
 
     ngOnInit() {
         this.eventService.getEvents().then(events => {this.events = events; });
+        this.changedEvent = {title: '', start: null, end: '', allDay: null};
 
         this.options = {
             plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
@@ -33,7 +40,33 @@ export class AppCalendarComponent implements OnInit{
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
-            editable: true
+            editable: true,
+            eventClick: (e) => {
+                this.eventDialog = true;
+
+                this.clickedEvent = e.event;
+
+                this.changedEvent.title = this.clickedEvent.title;
+                this.changedEvent.start = this.clickedEvent.start;
+                this.changedEvent.end = this.clickedEvent.end;
+            }
         };
+    }
+
+    save() {
+        this.eventDialog = false;
+
+        this.clickedEvent.setProp('title', this.changedEvent.title);
+        this.clickedEvent.setStart(this.changedEvent.start);
+        this.clickedEvent.setEnd(this.changedEvent.end);
+        this.clickedEvent.setAllDay(this.changedEvent.allDay);
+
+        this.changedEvent = {title: '', start: null, end: '', allDay: null};
+    }
+
+    reset() {
+        this.changedEvent.title = this.clickedEvent.title;
+        this.changedEvent.start = this.clickedEvent.start;
+        this.changedEvent.end = this.clickedEvent.end;
     }
 }
