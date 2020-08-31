@@ -117,11 +117,32 @@ export class AppConfigComponent implements OnInit {
     changeColorScheme(scheme) {
         this.changeStyleSheetsColor('layout-css', 'layout-' + scheme + '.css', 1);
         this.changeStyleSheetsColor('theme-css', 'theme-' + scheme + '.css', 1);
+
+        const mobileLogoLink: HTMLImageElement = document.getElementById('logo-mobile') as HTMLImageElement;
+        const footerLogoLink: HTMLImageElement = document.getElementById('footer-logo') as HTMLImageElement;
+
+        if (scheme === 'light') {
+            mobileLogoLink.src = 'assets/layout/images/logo-dark.svg';
+            footerLogoLink.src = 'assets/layout/images/logo-dark.svg';
+        }
+        else {
+            mobileLogoLink.src = 'assets/layout/images/logo-white.svg';
+            footerLogoLink.src = 'assets/layout/images/logo-white.svg';
+        }
     }
 
     changeMenuTheme(name, logoColor, componentTheme) {
         this.app.menuTheme = 'layout-sidebar-' + name;
         this.changeStyleSheetsColor('theme-css', componentTheme, 2);
+
+        const appLogoLink: HTMLImageElement = document.getElementById('app-logo') as HTMLImageElement;
+
+        if (logoColor === 'dark') {
+            appLogoLink.src = 'assets/layout/images/logo-dark.svg';
+        }
+        else {
+            appLogoLink.src = 'assets/layout/images/logo-white.svg';
+        }
     }
 
     changeComponentTheme(theme) {
