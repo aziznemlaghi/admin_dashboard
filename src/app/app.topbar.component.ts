@@ -2,7 +2,7 @@ import {Component, OnDestroy} from '@angular/core';
 import { AppMainComponent } from './app.main.component';
 import { BreadcrumbService } from './breadcrumb.service';
 import { Subscription } from 'rxjs';
-import { MenuItem } from 'primeng/primeng';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-topbar',
