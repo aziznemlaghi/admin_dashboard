@@ -8,4 +8,4 @@ sassdoc
 
 src/assets/theme/*/theme-*.css
 src/assets/layout/css/*.css
-src/assets/sass/designer
+src/assets/sass/theme/designer
