@@ -24,6 +24,10 @@ export class DashboardDemoComponent implements OnInit {
 
     products: Product[];
 
+    productsThisWeek: Product[];
+
+    productsLastWeek: Product[];
+
     revenueChart: any;
 
     constructor(private productService: ProductService, private breadcrumbService: BreadcrumbService) {
@@ -34,6 +38,8 @@ export class DashboardDemoComponent implements OnInit {
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
+        this.productService.getProducts().then(data => this.productsThisWeek = data);
+        this.productService.getProductsMixed().then(data => this.productsLastWeek = data);
 
         this.cols = [
             {field: 'vin', header: 'Vin'},
@@ -112,5 +118,21 @@ export class DashboardDemoComponent implements OnInit {
         this.ordersChart.datasets[0].label = event.currentTarget.getAttribute('data-label');
         this.ordersChart.datasets[0].borderColor = event.currentTarget.getAttribute('data-stroke');
         this.ordersChart.datasets[0].backgroundColor = event.currentTarget.getAttribute('data-fill');
+    }
+
+    recentSales(event) {
+        if (event.value.code === '0') {
+            this.products = this.productsThisWeek;
+        } else {
+            this.products = this.productsLastWeek;
+        }
+    }
+
+    shuffle() {
+        for (let i = this.products.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.products[i], this.products[j]] = [this.products[j], this.products[i]];
+        }
+        return this.products;
     }
 }
