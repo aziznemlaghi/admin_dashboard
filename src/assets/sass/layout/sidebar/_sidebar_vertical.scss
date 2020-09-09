@@ -8,6 +8,7 @@
     box-shadow: $overlayShadow;
     @include flex();
     @include flex-direction-column();
+    user-select: none;
     transition: transform $animationDuration $animationTimingFunction;
 
     .logo {

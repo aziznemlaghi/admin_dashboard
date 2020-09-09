@@ -28,7 +28,7 @@ import {AppMainComponent} from './app.main.component';
 				<i class="pi pi-fw pi-chevron-down layout-submenu-toggler" *ngIf="item.items"></i>
 			</a>
 			<ul *ngIf="item.items" role="menu"
-                [@children]=" root ? 'visible' :
+                [@children]="root ? 'visible' :
 				(active ? 'visibleAnimated' : 'hiddenAnimated')">
 				<ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
 					<li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>

@@ -161,6 +161,7 @@
                 animation-duration: .12s;
                 animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
                 border-radius: $borderRadius;
+                transform-origin: center top;
 
                 li {
                     a {
