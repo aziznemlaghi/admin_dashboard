@@ -20,6 +20,8 @@ export class PanelsDemoComponent implements OnInit {
 
     items: MenuItem[];
 
+    cardMenu: MenuItem[];
+
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             {label: 'Panel'}
@@ -30,6 +32,18 @@ export class PanelsDemoComponent implements OnInit {
         this.items = [
             {label: 'Angular.io', icon: 'pi pi-external-link', url: 'http://angular.io'},
             {label: 'Theming', icon: 'pi pi-bookmark', routerLink: ['/theming']}
+        ];
+
+        this.cardMenu = [
+            {
+                label: 'Save', icon: 'pi pi-fw pi-check'
+            },
+            {
+                label: 'Update', icon: 'pi pi-fw pi-refresh'
+            },
+            {
+                label: 'Delete', icon: 'pi pi-fw pi-trash'
+            },
         ];
     }
 }
