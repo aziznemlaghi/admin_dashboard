@@ -10,8 +10,8 @@
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
                 <p-footer>
-                    <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Yes"></button>
-                    <button type="button" pButton icon="pi pi-times" (click)="display=false" label="No" class="p-button-secondary"></button>
+                    <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Yes" class="p-button-text"></button>
+                    <button type="button" pButton icon="pi pi-times" (click)="display=false" label="No" class="p-button-text"></button>
                 </p-footer>
             </p-dialog>
 
@@ -31,7 +31,7 @@
                     <button type="button" pButton label="DataTable" (click)="op2.toggle($event)" class="p-button-success"></button>
                     <p-overlayPanel #op2 [showCloseIcon]="true" [style]="{width: '450px'}">
                         <ng-template pTemplate>
-                            <p-table [value]="products" selectionMode="single" [(selection)]="selectedProduct" [paginator]="true" [rows]="5">
+                            <p-table [value]="products" selectionMode="single" [(selection)]="selectedProduct" [paginator]="true" [rows]="5" (onRowSelect)="op2.hide()">
                                 <ng-template pTemplate="header">
                                     <tr>
                                         <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
@@ -59,7 +59,7 @@
         <div class="card p-fluid">
             <h5>Confirmation</h5>
             <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" message="Are you sure you want to proceed?"
-                             [style]="{width: '425px'}" rejectButtonStyleClass="p-button-secondary"></p-confirmDialog>
+                             [style]="{width: '425px'}" acceptButtonStyleClass="p-button-text" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
 
             <button type="text" (click)="confirm()" pButton icon="pi pi-trash" label="Delete" class="p-button-danger"></button>
         </div>
@@ -68,42 +68,22 @@
             <h5>Sidebar</h5>
             <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
                 <h3 style="font-weight:normal">Left Sidebar</h3>
-                <button pButton type="button" (click)="visibleSidebar1 = false" label="Save"
-                        class="p-button-success"></button>
-                <button pButton type="button" (click)="visibleSidebar1 = false" label="Cancel"
-                        class="p-button-secondary"></button>
             </p-sidebar>
 
             <p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="10000">
                 <h3 style="font-weight:normal">Right Sidebar</h3>
-                <button pButton type="button" (click)="visibleSidebar2 = false" label="Save"
-                        class="p-button-success"></button>
-                <button pButton type="button" (click)="visibleSidebar2 = false" label="Cancel"
-                        class="p-button-secondary"></button>
             </p-sidebar>
 
             <p-sidebar [(visible)]="visibleSidebar3" position="top" [baseZIndex]="10000">
                 <h3 style="font-weight:normal">Top Sidebar</h3>
-                <button pButton type="button" (click)="visibleSidebar3 = false" label="Save"
-                        class="p-button-success"></button>
-                <button pButton type="button" (click)="visibleSidebar3 = false" label="Cancel"
-                        class="p-button-secondary"></button>
             </p-sidebar>
 
             <p-sidebar [(visible)]="visibleSidebar4" position="bottom" [baseZIndex]="10000">
                 <h3 style="font-weight:normal">Bottom Sidebar</h3>
-                <button pButton type="button" (click)="visibleSidebar4 = false" label="Save"
-                        class="p-button-success"></button>
-                <button pButton type="button" (click)="visibleSidebar4 = false" label="Cancel"
-                        class="p-button-secondary"></button>
             </p-sidebar>
 
             <p-sidebar [(visible)]="visibleSidebar5" [fullScreen]="true" [baseZIndex]="10000">
                 <h3 style="font-weight:normal">Full Screen Sidebar</h3>
-                <button pButton type="button" (click)="visibleSidebar5 = false" label="Save"
-                        class="p-button-success"></button>
-                <button pButton type="button" (click)="visibleSidebar5 = false" label="Cancel"
-                        class="p-button-secondary"></button>
             </p-sidebar>
 
             <button pButton type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right" class="p-button-warning"></button>
@@ -118,8 +98,8 @@
             <h5>Tooltip</h5>
             <div class="p-formgroup-inline">
                 <div class="p-field">
-                    <label for="firstname5" class="p-sr-only">Firstname</label>
-                    <input id="firstname5" type="text" pInputText placeholder="Firstname" pTooltip="Enter your username">
+                    <label for="firstname5" class="p-sr-only">Username</label>
+                    <input id="firstname5" type="text" pInputText placeholder="Username" pTooltip="Enter your username">
                 </div>
                 <button pButton pRipple type="button" label="Submit" pTooltip="Click to proceed"></button>
             </div>
