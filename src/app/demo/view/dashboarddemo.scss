@@ -1,40 +1,50 @@
 .layout-dashboard {
-	.order-tabs {
-		margin-bottom: 1rem;
+	.orders {
+		h4 {
+			margin-bottom: 20px;
+		}
 
-		.order-tab {
-			padding: 1rem 2rem 2rem 1rem;
-			position: relative;
-			transition: box-shadow .2s;
+		.p-button {
+			margin-top: -20px;
+		}
 
-			&:hover {
-				box-shadow: 0 .125rem .25rem rgba(0,0,0,.15);
-				cursor: pointer;
-			}
+		.order-tabs {
+			margin-bottom: 1rem;
 
-			i {
-				font-size: 1rem;
-				vertical-align: middle;
-			}
+			.order-tab {
+				padding: 1rem 2rem 2rem 1rem;
+				position: relative;
+				transition: box-shadow .2s;
 
-			.order-label {
-				margin-left: .25rem;
-				vertical-align: middle;
-			}
+				&:hover {
+					box-shadow: 0 .125rem .25rem rgba(0,0,0,.15);
+					cursor: pointer;
+				}
 
-			.stat-detail-icon {
-				position: absolute;
-				right: 1rem;
-				top: 2.25rem;
-				height: 1rem;
-				width: 1rem;
-			}
+				i {
+					font-size: 1rem;
+					vertical-align: middle;
+				}
 
-			img {
-				position: absolute;
-				bottom: 0;
-				left: 5%;
-				width: 90%;
+				.order-label {
+					margin-left: .25rem;
+					vertical-align: middle;
+				}
+
+				.stat-detail-icon {
+					position: absolute;
+					right: 1rem;
+					top: 2.25rem;
+					height: 1rem;
+					width: 1rem;
+				}
+
+				img {
+					position: absolute;
+					bottom: 0;
+					left: 5%;
+					width: 90%;
+				}
 			}
 		}
 	}
