@@ -77,7 +77,7 @@
                 padding: 0 1rem 0 1rem;
                 border-left: 1px solid $dividerColor;
                 border-right: 1px solid $dividerColor;
-    
+
                 > a {
                     width: auto;
                     height: auto;
@@ -87,14 +87,14 @@
                     font-weight: 600;
                     padding: 0 .5rem 0 0;
                 }
-    
+
                 .profile-image {
                     width: 2.5rem;
                     height: 2.5rem;
                     margin-right: .5rem;
                 }
             }
-    
+
             &.right-sidebar-item {
                 > a {
                     background: $topbarIconBg;
@@ -158,8 +158,8 @@
                 min-width: 250px;
                 border: $overlayBorder;
                 box-shadow: $overlayShadow;
-                animation-duration: $animationDuration;
-                animation-timing-function: $animationTimingFunction;
+                animation-duration: .12s;
+                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
                 border-radius: $borderRadius;
 
                 li {

@@ -6,7 +6,7 @@ import { PrimeNGConfig } from 'primeng/api';
     selector: 'app-main',
     templateUrl: './app.main.component.html',
 })
-export class AppMainComponent {
+export class AppMainComponent implements OnInit{
     menuMode = 'static';
 
     colorScheme = 'light';
@@ -47,7 +47,13 @@ export class AppMainComponent {
 
     inputStyle = 'outlined';
 
-    constructor(private menuService: MenuService) { }
+    ripple: boolean;
+
+    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig) { }
+
+    ngOnInit() {
+        this.primengConfig.ripple = true;
+    }
 
     onLayoutClick() {
         if (!this.searchClick) {
@@ -152,8 +158,8 @@ export class AppMainComponent {
         event.preventDefault();
     }
 
-    onTopbarSubItemClick(event) {
-        event.preventDefault();
+    onRippleChange(event) {
+        this.ripple = event.checked;
     }
 
     onConfigClick(event) {
@@ -168,32 +174,13 @@ export class AppMainComponent {
         return this.menuMode === 'overlay';
     }
 
-    isStatic() {
-        return this.menuMode === 'static';
-    }
-
-    isMobile() {
-        return window.innerWidth < 1025;
-    }
-
     isDesktop() {
         return window.innerWidth > 896;
-    }
-
-    isTablet() {
-        const width = window.innerWidth;
-        return width <= 1024 && width > 640;
     }
 
     hideOverlayMenu() {
         this.overlayMenuActive = false;
         this.staticMenuMobileActive = false;
-    }
-
-    changeMenuMode(menuMode: string) {
-        this.menuMode = menuMode;
-        this.staticMenuDesktopInactive = false;
-        this.overlayMenuActive = false;
     }
 
     blockBodyScroll(): void {

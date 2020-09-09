@@ -52,6 +52,11 @@ import { AppMainComponent } from './app.main.component';
 
             <hr />
 
+            <h5>Ripple Effect</h5>
+			<p-inputSwitch [ngModel]="app.ripple" (onChange)="app.onRippleChange($event)"></p-inputSwitch>
+
+            <hr />
+
             <h5>Menu Themes</h5>
             <div class="layout-themes" *ngIf="app.colorScheme === 'light'">
                 <div *ngFor="let theme of menuThemes">

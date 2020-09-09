@@ -5,12 +5,11 @@ import {BreadcrumbService} from '../../breadcrumb.service';
 @Component({
     templateUrl: './messagesdemo.component.html',
     styles: [`
-        :host ::ng-deep button {
-            margin-right: .25em;
+        :host ::ng-deep .p-button {
             min-width: 8em;
         }
 
-		:host ::ng-deep .ui-message {
+		:host ::ng-deep .p-message {
 			margin-left: .25em;
 		}
     `],

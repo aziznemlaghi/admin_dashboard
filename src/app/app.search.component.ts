@@ -9,7 +9,7 @@ import {AppMainComponent} from './app.main.component';
         <div class="layout-search" [ngClass]="{'layout-search-active': app.search}">
             <div class="search-container fade-in-up">
                 <i class="pi pi-search"></i>
-                <input type="text" class="p-inputtext" placeholder="Search" />
+                <input type="text" class="p-inputtext" placeholder="Search" (click)="app.searchClick = true;"/>
             </div>
         </div>
     `
