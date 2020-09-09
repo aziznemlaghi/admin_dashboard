@@ -48,35 +48,6 @@
 	}
 }
 
-@-webkit-keyframes fade-one {
-  from {
-    opacity: 0;
-    transform: scaleY(0.8);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fade-one {
-  from {
-    opacity: 0;
-    transform: scaleY(0.8);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.fade-one {
-  -webkit-animation-name: fade-one;
-  animation-name: fade-one;
-}
-
 .fade-in-up {
 	-webkit-animation-name: fade-in-up;
 	animation-name: fade-in-up;
