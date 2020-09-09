@@ -19,7 +19,6 @@ import {BreadcrumbService} from '../breadcrumb.service';
 })
 export class AppCrudComponent implements OnInit {
 
-
     productDialog: boolean;
 
     products: Product[];
@@ -30,6 +29,8 @@ export class AppCrudComponent implements OnInit {
 
     submitted: boolean;
 
+    cols: any[];
+
     constructor(private productService: ProductService, private messageService: MessageService,
                 private confirmationService: ConfirmationService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
@@ -39,6 +40,14 @@ export class AppCrudComponent implements OnInit {
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
+
+        this.cols = [
+            { field: 'name', header: 'Name' },
+            { field: 'price', header: 'Price' },
+            { field: 'category', header: 'Category' },
+            { field: 'rating', header: 'Reviews' },
+            { field: 'inventoryStatus', header: 'Status' }
+        ];
     }
 
     openNew() {
@@ -118,7 +127,7 @@ export class AppCrudComponent implements OnInit {
 
     createId(): string {
         let id = '';
-        let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         for ( let i = 0; i < 5; i++ ) {
             id += chars.charAt(Math.floor(Math.random() * chars.length));
         }

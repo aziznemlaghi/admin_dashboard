@@ -12,11 +12,11 @@
 
 				<ng-template pTemplate="right">
 					<p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
-					<button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+					<button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help" (click)="dt.exportCSV()"></button>
 				</ng-template>
 			</p-toolbar>
 
-			<p-table #dt [value]="products" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']"
+			<p-table #dt [value]="products" [columns]="cols" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']"
 					 [(selection)]="selectedProducts" [rowHover]="true" dataKey="id"
 					 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
 				<ng-template pTemplate="caption">
