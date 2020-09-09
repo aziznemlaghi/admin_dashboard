@@ -42,12 +42,14 @@
 			text-align: left;
 		}
 
-		.p-datatable-tbody > tr > td {
-			cursor: auto;
-		}
-
 		.p-dropdown-label:not(.p-placeholder) {
 			text-transform: uppercase;
+		}
+	}
+
+	.p-datatable.p-datatable-customers:not(.p-datatable-gridlines) {
+		.p-datatable-tbody > tr > td {
+			cursor: auto;
 		}
 	}
 
