@@ -175,7 +175,11 @@ export class AppMainComponent implements OnInit{
     }
 
     isDesktop() {
-        return window.innerWidth > 896;
+        return window.innerWidth > 991;
+    }
+
+    isMobile() {
+        return window.innerWidth <= 991;
     }
 
     hideOverlayMenu() {

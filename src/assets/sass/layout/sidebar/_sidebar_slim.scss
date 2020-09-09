@@ -58,6 +58,7 @@
                         border-radius: $borderRadius;
                         padding: .5rem 0;
                         cursor: pointer;
+                        outline: none;
                         transition: background-color $transitionDuration;
 
                         .layout-submenu-toggler {

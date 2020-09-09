@@ -27,9 +27,9 @@ import {AppMainComponent} from './app.main.component';
 				<span class="layout-menuitem-text">{{item.label}}</span>
 				<i class="pi pi-fw pi-chevron-down layout-submenu-toggler" *ngIf="item.items"></i>
 			</a>
-			<ul *ngIf="item.items" role="menu"
-                [@children]="root ? 'visible' :
-				(active ? 'visibleAnimated' : 'hiddenAnimated')">
+
+			<ul *ngIf="item.items" role="menu" [@children]="app.isSlim() ? (root ? app.isMobile()? 'visible': (active ? 'slimVisibleAnimated' : 'slimHiddenAnimated') :
+			(active ? 'visible' : 'hidden')) : (root ? 'visible' :(active ? 'visibleAnimated' : 'hiddenAnimated'))">
 				<ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
 					<li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
 				</ng-template>
@@ -59,10 +59,20 @@ import {AppMainComponent} from './app.main.component';
                 height: '0px',
                 'z-index': '*'
             })),
+            state('slimVisibleAnimated', style({
+                opacity: 1,
+                transform: 'none'
+            })),
+            state('slimHiddenAnimated', style({
+                opacity: 0,
+                transform: 'translateX(20px)'
+            })),
             transition('visibleAnimated => hiddenAnimated', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
             transition('hiddenAnimated => visibleAnimated', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
             transition('void => visibleAnimated, visibleAnimated => void',
-                animate('400ms cubic-bezier(0.86, 0, 0.07, 1)'))
+                animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
+            transition('void => slimVisibleAnimated', animate('400ms cubic-bezier(.05,.74,.2,.99)')),
+            transition('slimHiddenAnimated => slimVisibleAnimated', animate('400ms cubic-bezier(.05,.74,.2,.99)'))
         ])
     ]
 })

@@ -6,7 +6,7 @@
     'layout-sidebar-dark': colorScheme === 'dark',
     'layout-overlay-active': overlayMenuActive,
     'layout-mobile-active': staticMenuMobileActive,
-    'layout-static-inactive': staticMenuDesktopInactive,
+    'layout-static-inactive': staticMenuDesktopInactive && menuMode === 'static',
     'p-input-filled': inputStyle === 'filled', 'p-ripple-disabled': !ripple}" [class]="colorScheme === 'light' ? menuTheme : ''"
      [attr.data-theme]="colorScheme" (click)="onLayoutClick()">
 
