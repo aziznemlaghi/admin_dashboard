@@ -2,8 +2,7 @@ import {Component} from '@angular/core';
 import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
-    templateUrl: './documentation.component.html',
-    styleUrls: ['./documentation.scss']
+    templateUrl: './documentation.component.html'
 })
 export class DocumentationComponent {
 

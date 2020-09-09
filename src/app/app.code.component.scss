@@ -35,7 +35,7 @@ i:not([class~="pi"]) {
 	code {
 		border-left: 10px solid var(--surface-d) !important;
 		box-shadow: none !important;
-		background: var(--surface-d) !important;
+		background: var(--surface-b) !important;
 		margin: 1em 0;
 		color: var(--text-color);
 		font-size: 14px;
@@ -64,25 +64,5 @@ i:not([class~="pi"]) {
 				background: transparent;
 			}
 		}
-	}
-}
-
-.icon-filter {
-	width: 100%;
-	padding: 1rem;
-	margin: 1rem 0 1.5rem 0;
-}
-
-.icons-list {
-	text-align: center;
-
-	i {
-		font-size: 1.5rem;
-		color: var(--text-color-secondary);
-		margin-bottom: .5rem;
-	}
-
-	.p-md-2 {
-		padding-bottom: 2rem;
 	}
 }

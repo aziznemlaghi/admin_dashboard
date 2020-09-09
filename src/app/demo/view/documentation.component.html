@@ -340,7 +340,7 @@ sass --watch src/assets/theme/mytheme/theme.scss:src/assets/theme/mytheme/theme.
             <p>In case you'd like to customize the shared variables, the _variables.scss files are where the options are defined for both layout and theme.</p>
 
 <h5>sass/variables/layout/_common.scss</h5>
-<app-code ngPreserveWhitespaces ngNonBindable lang="markup">
+<app-code ngPreserveWhitespaces ngNonBindable lang="css">
 $fontSize:14px !default;
 $fontFamily:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !default;
 $transitionDuration:.2s !default;
@@ -353,7 +353,7 @@ $phoneBreakpoint:576px !default;
 </app-code>
 
 <h5>sass/variables/layout/_layout_light.scss</h5>
-<app-code ngPreserveWhitespaces ngNonBindable lang="markup">
+<app-code ngPreserveWhitespaces ngNonBindable lang="css">
 @import 'common';
 
 $bodyBg: #f8f9fa !default;
@@ -400,7 +400,7 @@ $rightSidebarBg: #ffffff !default;
 
 <h5>sass/variables/theme/_theme_light</h5>
 <div style="height:400px;overflow: auto;">
-<app-code ngPreserveWhitespaces ngNonBindable lang="markup">
+<app-code ngPreserveWhitespaces ngNonBindable lang="css">
 //reused color variables
 $shade000:#ffffff !default;    //surface
 $shade100:#f8f9fa !default;    //header background
@@ -1136,7 +1136,7 @@ $galleriaThumbnailNavigatorHeight:2rem !default;
 </div>
 
             <h4>Menu Modes</h4>
-            <p>Menu has 4 modes, static, overlay, slim and horizontal. Layout container element in app.component.html is used to define which mode to use by adding specific classes. List
+            <p>Menu has 3 modes, static, overlay and slim. Layout container element in app.component.html is used to define which mode to use by adding specific classes. List
             below indicates the style classes for each mode. </p>
             <ul>
                 <li>Static: "layout-wrapper layout-static"</li>
@@ -1185,8 +1185,6 @@ $galleriaThumbnailNavigatorHeight:2rem !default;
                 <li><b>_theme_variables</b>: Variables of the theme.</li>
                 <li><b>_theme_styles</b>: Styles for the theme.</li>
             </ul>
-
-            <h4>Migration Guide</h4>
         </div>
     </div>
 </div>
