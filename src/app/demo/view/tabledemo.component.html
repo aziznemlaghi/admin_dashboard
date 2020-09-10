@@ -3,8 +3,8 @@
 		<div class="card">
 			<h4>Default</h4>
 			<p>Pagination, sorting, filtering and checkbox selection.</p>
-			<p-table #dt [value]="customers" [(selection)]="selectedCustomers1" dataKey="id"
-					 styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [loading]="loading" [paginator]="true"
+			<p-table #dt [value]="customers1" [(selection)]="selectedCustomers1" dataKey="id"
+					 styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [paginator]="true"
 					 [filterDelay]="0" [globalFilterFields]="['name','country.name','representative.name','status']">
 				<ng-template pTemplate="caption">
 					<div class="table-header">
@@ -95,15 +95,15 @@
 			<h4>Customized</h4>
 			<p>Scrollable table with gridlines (<mark>.p-datatable-gridlines</mark>), striped rows (<mark>.p-datatable-striped</mark>) and smaller paddings (<mark>p-datatable-sm</mark>).</p>
 
-			<p-table #dt [value]="customers" [(selection)]="selectedCustomers2" dataKey="id" selectionMode="single"
-					 styleClass="p-datatable-customers p-datatable-gridlines p-datatable-striped p-datatable-sm" [loading]="loading"
+			<p-table #dtc [value]="customers2" [(selection)]="selectedCustomer" dataKey="id" selectionMode="single"
+					 styleClass="p-datatable-customers p-datatable-gridlines p-datatable-striped p-datatable-sm"
 					 [scrollable]="true" scrollHeight="600px" [filterDelay]="0" [globalFilterFields]="['name','country.name','representative.name','status']">
 				<ng-template pTemplate="caption">
 					<div class="table-header">
 						Customers
 						<span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
-                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                    <input pInputText type="text" (input)="dtc.filterGlobal($event.target.value, 'contains')"
 						   placeholder="Global Search"/>
                 </span>
 					</div>
@@ -241,8 +241,8 @@
 
 	<div class="p-col-12">
 		<div class="card">
-			<h4>Row Group</h4>
-			<p-table [value]="customers" sortField="representative.name" sortMode="single" (onSort)="onSort()" [scrollable]="true" scrollHeight="600px">
+			<h4>Row Group and Scrolling</h4>
+			<p-table [value]="customers3" sortField="representative.name" sortMode="single" (onSort)="onSort()" [scrollable]="true" scrollHeight="600px">
 				<ng-template pTemplate="header">
 					<tr>
 						<th>Name</th>
