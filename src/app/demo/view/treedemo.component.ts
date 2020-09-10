@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NodeService} from '../service/nodeservice';
 import {TreeNode} from 'primeng/api';
-import {BreadcrumbService} from '../../breadcrumb.service';
+import {BreadcrumbService} from '../../app.breadcrumb.service';
 
 @Component({
     templateUrl: './treedemo.component.html'
