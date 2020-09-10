@@ -4,11 +4,6 @@ import {BreadcrumbService} from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './menusdemo.component.html',
-    styles: [`
-        .ui-steps-item {
-            width: 25%
-        }
-    `],
     encapsulation: ViewEncapsulation.None
 })
 export class MenusDemoComponent implements OnInit {

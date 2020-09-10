@@ -159,6 +159,10 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             // activate item
             this.active = true;
 
+            if (this.app.isMobile()) {
+                this.app.staticMenuMobileActive = false;
+            }
+
             // reset horizontal menu
             if (this.app.isSlim()) {
                 this.menuService.reset();

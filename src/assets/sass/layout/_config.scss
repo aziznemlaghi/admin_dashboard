@@ -11,23 +11,17 @@
     border-left: $overlayBorder;
     transform: translateX(100%);
     transition: transform $animationDuration $animationTimingFunction;
-    
+
     &.layout-config-active {
         transform: translateX(0);
         box-shadow: $overlayShadow;
-        
+
         .layout-config-content {
             .layout-config-button {
                 i {
                     transform: rotate(360deg);
                 }
             }
-        }
-    }
-
-    .ui-selectoneradio {
-        td {
-            padding: .5rem;
         }
     }
 
@@ -43,7 +37,7 @@
         > div {
             padding: .25rem;
         }
-        
+
 
         a {
             width: 2rem;
