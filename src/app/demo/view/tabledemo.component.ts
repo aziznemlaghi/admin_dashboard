@@ -12,19 +12,17 @@ import {BreadcrumbService} from '../../app.breadcrumb.service';
 })
 export class TableDemoComponent implements OnInit {
 
-    customers1: Customer[];
-
-    customers2: Customer[];
-
-    customers3: Customer[];
+    customers: Customer[];
 
     selectedCustomers1: Customer[];
 
-    selectedCustomer: Customer;
+    selectedCustomers2: Customer;
 
     representatives: Representative[];
 
     statuses: any[];
+
+    loading = true;
 
     products: Product[];
 
@@ -40,9 +38,10 @@ export class TableDemoComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.customerService.getCustomersMedium().then(customers => this.customers1 = customers);
-        this.customerService.getCustomersMedium().then(customers => this.customers2 = customers);
-        this.customerService.getCustomersMedium().then(customers => this.customers3 = customers);
+        this.customerService.getCustomersMedium().then(customers => {
+            this.customers = customers;
+            this.loading = false;
+        });
         this.productService.getProductsWithOrdersSmall().then(data => this.products = data);
 
         this.representatives = [
@@ -75,16 +74,16 @@ export class TableDemoComponent implements OnInit {
     updateRowGroupMetaData() {
         this.rowGroupMetadata = {};
 
-        if (this.customers3) {
-            for (let i = 0; i < this.customers3.length; i++) {
-                const rowData = this.customers3[i];
+        if (this.customers) {
+            for (let i = 0; i < this.customers.length; i++) {
+                const rowData = this.customers[i];
                 const representativeName = rowData.representative.name;
 
                 if (i === 0) {
                     this.rowGroupMetadata[representativeName] = { index: 0, size: 1 };
                 }
                 else {
-                    const previousRowData = this.customers3[i - 1];
+                    const previousRowData = this.customers[i - 1];
                     const previousRowGroup = previousRowData.representative.name;
                     if (representativeName === previousRowGroup) {
                         this.rowGroupMetadata[representativeName].size++;
