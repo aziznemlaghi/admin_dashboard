@@ -42,7 +42,7 @@
 
         <div class="card">
             <h5>MenuButton</h5>
-            <p-menu #menu popup="popup" [model]="menuItems" [style]="{'width':'250px'}"></p-menu>
+            <p-menu #menu [popup]="true" [model]="menuItems" [style]="{'width':'250px'}"></p-menu>
             <button type="button" pButton icon="pi pi-chevron-down" label="Options" (click)="menu.toggle($event)" style="width:auto"></button>
         </div>
     </div>
