@@ -3,7 +3,7 @@ import {EventService} from '../demo/service/eventservice';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import {BreadcrumbService} from '../breadcrumb.service';
+import {BreadcrumbService} from '../app.breadcrumb.service';
 
 @Component({
     templateUrl: './app.calendar.component.html'

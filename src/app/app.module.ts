@@ -124,7 +124,7 @@ import {IconService} from './demo/service/iconservice';
 import {NodeService} from './demo/service/nodeservice';
 import {PhotoService} from './demo/service/photoservice';
 import {ProductService} from './demo/service/productservice';
-import {BreadcrumbService} from './breadcrumb.service';
+import {BreadcrumbService} from './app.breadcrumb.service';
 import {MenuService} from './app.menu.service';
 
 @NgModule({

@@ -94,25 +94,11 @@ Run 'ng help' for more options.
 <div style="height:400px;overflow: auto;">
 <app-code ngPreserveWhitespaces ngNonBindable lang="javascript">
 import &#123; Component, OnInit &#125; from '@angular/core';
-import &#123; trigger, state, style, transition, animate &#125; from '@angular/animations';
 import &#123; AppMainComponent &#125; from './app.main.component';
 
 @Component(&#123;
     selector: 'app-menu',
-    templateUrl: './app.menu.component.html',
-    animations: [
-        trigger('inline', [
-            state('hiddenAnimated', style(&#123;
-                height: '0px',
-                overflow: 'hidden'
-            &#125;)),
-            state('visibleAnimated', style(&#123;
-                height: '*',
-            &#125;)),
-            transition('visibleAnimated => hiddenAnimated', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
-            transition('hiddenAnimated => visibleAnimated', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)'))
-        ])
-    ]
+    templateUrl: './app.menu.component.html'
 &#125;)
 export class AppMenuComponent implements OnInit, AfterViewInit &#123;
 
@@ -124,100 +110,120 @@ export class AppMenuComponent implements OnInit, AfterViewInit &#123;
 
     ngOnInit() &#123;
         this.model = [
-            &#123; label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/']&#125;,
             &#123;
-                label: 'Components', icon: 'pi pi-fw pi-star', routerLink: ['/components'],
+                label: 'Favorites', icon: 'pi pi-home',
                 items: [
-                    &#123; label: 'Sample Page', icon: 'pi pi-fw pi-th-large', routerLink: ['/components/sample']  &#125;,
-                    &#123; label: 'Forms', icon: 'pi pi-fw pi-file', routerLink: ['/components/forms'] &#125;,
-                    &#123; label: 'Data', icon: 'pi pi-fw pi-table', routerLink: ['/components/data'] &#125;,
-                    &#123; label: 'Panels', icon: 'pi pi-fw pi-list', routerLink: ['/components/panels'] &#125;,
-                    &#123; label: 'Overlays', icon: 'pi pi-fw pi-clone', routerLink: ['/components/overlays'] &#125;,
-                    &#123; label: 'Menus', icon: 'pi pi-fw pi-plus', routerLink: ['/components/menus'] &#125;,
-                    &#123; label: 'Messages', icon: 'pi pi-fw pi-envelope', routerLink: ['/components/messages'] &#125;,
-                    &#123; label: 'Charts', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/components/charts'] &#125;,
-                    &#123; label: 'File', icon: 'pi pi-fw pi-upload', routerLink: ['/components/file'] &#125;,
-                    &#123; label: 'Misc', icon: 'pi pi-fw pi-spinner', routerLink: ['/components/misc'] &#125;
+                    &#123;label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/']&#125;
                 ]
             &#125;,
+            &#123;separator: true&#125;,
             &#123;
-                label: 'Pages', icon: 'pi pi-fw pi-copy', routerLink: ['/pages'],
+                label: 'UI Kit', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'],
                 items: [
-                    &#123; label: 'Empty', icon: 'pi pi-fw pi-clone', routerLink: ['/pages/empty'] &#125;,
-                    &#123; label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['/login'], target: '_blank' &#125;,
-                    &#123; label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank' &#125;,
-                    &#123; label: 'Error', icon: 'pi pi-fw pi-exclamation-triangle', routerLink: ['/error'], target: '_blank' &#125;,
-                    &#123; label: '404', icon: 'pi pi-fw pi-times', routerLink: ['/accessdenied'], target: '_blank' &#125;,
-                    &#123;
-                        label: 'Access Denied', icon: 'pi pi-fw pi-ban',
-                        routerLink: ['/access'], target: '_blank'
-                    &#125;
+                    &#123;label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']&#125;,
+                    &#123;label: 'Input', icon: 'pi pi-fw pi-check-square', routerLink: ['/uikit/input']&#125;,
+                    &#123;label: 'Button', icon: 'pi pi-fw pi-mobile', routerLink: ['/uikit/button'], class: 'rotated-icon'&#125;,
+                    &#123;label: 'Table', icon: 'pi pi-fw pi-table', routerLink: ['/uikit/table']&#125;,
+                    &#123;label: 'List', icon: 'pi pi-fw pi-list', routerLink: ['/uikit/list']&#125;,
+                    &#123;label: 'Tree', icon: 'pi pi-fw pi-share-alt', routerLink: ['/uikit/tree']&#125;,
+                    &#123;label: 'Panel', icon: 'pi pi-fw pi-tablet', routerLink: ['/uikit/panel']&#125;,
+                    &#123;label: 'Overlay', icon: 'pi pi-fw pi-clone', routerLink: ['/uikit/overlay']&#125;,
+                    &#123;label: 'Menu', icon: 'pi pi-fw pi-bars', routerLink: ['/uikit/menu']&#125;,
+                    &#123;label: 'Message', icon: 'pi pi-fw pi-comment', routerLink: ['/uikit/message']&#125;,
+                    &#123;label: 'File', icon: 'pi pi-fw pi-file', routerLink: ['/uikit/file']&#125;,
+                    &#123;label: 'Chart', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/uikit/charts']&#125;,
+                    &#123;label: 'Misc', icon: 'pi pi-fw pi-circle-off', routerLink: ['/uikit/misc']&#125;
                 ]
             &#125;,
+            &#123;separator: true&#125;,
             &#123;
-                label: 'Hierarchy', icon: 'pi pi-fw pi-sitemap',
+                label: 'Utilities', icon: 'pi pi-fw pi-compass', routerLink: ['utilities'],
+                items: [
+                    &#123;label: 'Display', icon: 'pi pi-fw pi-desktop', routerLink: ['utilities/display']&#125;,
+                    &#123;label: 'Elevation', icon: 'pi pi-fw pi-external-link', routerLink: ['utilities/elevation']&#125;,
+                    &#123;label: 'FlexBox', icon: 'pi pi-fw pi-directions', routerLink: ['utilities/flexbox']&#125;,
+                    &#123;label: 'Icons', icon: 'pi pi-fw pi-search', routerLink: ['utilities/icons']&#125;,
+                    &#123;label: 'Text', icon: 'pi pi-fw pi-pencil', routerLink: ['utilities/text']&#125;,
+                    &#123;label: 'Widgets', icon: 'pi pi-fw pi-star-o', routerLink: ['utilities/widgets']&#125;,
+                    &#123;label: 'Grid System', icon: 'pi pi-fw pi-th-large', routerLink: ['utilities/grid']&#125;,
+                    &#123;label: 'Spacing', icon: 'pi pi-fw pi-arrow-right', routerLink: ['utilities/spacing']&#125;,
+                    &#123;label: 'Typography', icon: 'pi pi-fw pi-align-center', routerLink: ['utilities/typography']&#125;
+                ]
+            &#125;,
+            &#123;separator: true&#125;,
+            &#123;
+                label: 'Pages', icon: 'pi pi-fw pi-briefcase', routerLink: ['/pages'],
+                items: [
+                    &#123;label: 'Crud', icon: 'pi pi-fw pi-pencil', routerLink: ['/pages/crud']&#125;,
+                    &#123;label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', routerLink: ['/pages/calendar']&#125;,
+                    &#123;label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'&#125;,
+                    &#123;label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['/login']&#125;,
+                    &#123;label: 'Invoice', icon: 'pi pi-fw pi-dollar', routerLink: ['/pages/invoice']&#125;,
+                    &#123;label: 'Help', icon: 'pi pi-fw pi-question-circle', routerLink: ['/pages/help']&#125;,
+                    &#123;label: 'Error', icon: 'pi pi-fw pi-times-circle', routerLink: ['/error']&#125;,
+                    &#123;label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', routerLink: ['/notfound']&#125;,
+                    &#123;label: 'Access Denied', icon: 'pi pi-fw pi-lock', routerLink: ['/access']&#125;,
+                    &#123;label: 'Empty', icon: 'pi pi-fw pi-circle-off', routerLink: ['/pages/empty']&#125;
+                ]
+            &#125;,
+            &#123;separator: true&#125;,
+            &#123;
+                label: 'Hierarchy', icon: 'pi pi-fw pi-align-left',
                 items: [
                     &#123;
-                        label: 'Submenu 1', icon: 'pi pi-fw pi-sign-in',
+                        label: 'Submenu 1', icon: 'pi pi-fw pi-align-left',
                         items: [
                             &#123;
-                                label: 'Submenu 1.1', icon: 'pi pi-fw pi-sign-in',
+                                label: 'Submenu 1.1', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    &#123; label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-sign-in' &#125;,
-                                    &#123; label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-sign-in' &#125;,
-                                    &#123; label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-sign-in' &#125;,
+                                    &#123;label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-align-left'&#125;,
+                                    &#123;label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-align-left'&#125;,
+                                    &#123;label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-align-left'&#125;,
                                 ]
                             &#125;,
                             &#123;
-                                label: 'Submenu 1.2', icon: 'pi pi-fw pi-sign-in',
+                                label: 'Submenu 1.2', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    &#123; label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-sign-in' &#125;
+                                    &#123;label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-align-left'&#125;
                                 ]
                             &#125;,
                         ]
                     &#125;,
                     &#123;
-                        label: 'Submenu 2', icon: 'pi pi-fw pi-sign-in',
+                        label: 'Submenu 2', icon: 'pi pi-fw pi-align-left',
                         items: [
                             &#123;
-                                label: 'Submenu 2.1', icon: 'pi pi-fw pi-sign-in',
+                                label: 'Submenu 2.1', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    &#123; label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-sign-in' &#125;,
-                                    &#123; label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-sign-in' &#125;,
+                                    &#123;label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-align-left'&#125;,
+                                    &#123;label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-align-left'&#125;,
                                 ]
                             &#125;,
                             &#123;
-                                label: 'Submenu 2.2', icon: 'pi pi-fw pi-sign-in',
+                                label: 'Submenu 2.2', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    &#123; label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-sign-in' &#125;,
+                                    &#123;label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-align-left'&#125;,
                                 ]
                             &#125;,
                         ]
                     &#125;
                 ]
             &#125;,
+            &#123;separator: true&#125;,
             &#123;
-                label: 'Docs', icon: 'pi pi-fw pi-file', routerLink: ['/documentation']
+                label: 'Start', icon: 'pi pi-fw pi-download',
+                items: [
+                    &#123;
+                        label: 'Buy Now', icon: 'pi pi-fw pi-shopping-cart', url: ['https://www.primefaces.org/store']
+                    &#125;,
+                    &#123;
+                        label: 'Documentation', icon: 'pi pi-fw pi-info-circle', routerLink: ['/documentation']
+                    &#125;
+                ]
             &#125;,
-            &#123;
-                label: 'Buy Now', icon: 'pi pi-fw pi-money-bill', url: ['https://www.primefaces.org/store']
-            &#125;
-        ];
-        this.inlineModel = [
-            &#123;
-                label: 'Profile', icon: 'pi pi-fw pi-user'
-            &#125;,
-            &#123;
-                label: 'Settings', icon: 'pi pi-fw pi-cog'
-            &#125;,
-            &#123;
-                label: 'Messages', icon: 'pi pi-fw pi-envelope'
-            &#125;,
-            &#123;
-                label: 'Notifications', icon: 'pi pi-fw pi-bell'
-            &#125;
         ];
     &#125;
+
 &#125;
 </app-code>
 </div>
@@ -227,7 +233,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit &#123;
 
 <ul>
     <li>Copy the <i>src/assets</i> folder to your projects folder with the same name</li>
-    <li>Copy all app.* files and breadcrumb.service.ts to the src/app folder of your application.</li>
+    <li>Copy all app.* files to the src/app folder of your application.</li>
 </ul>
 
           <p>Install PrimeNG</p>
@@ -336,10 +342,11 @@ sass --watch src/assets/theme/mytheme/theme.scss:src/assets/theme/mytheme/theme.
 @import '../../sass/layout/_layout_light';
 </app-code>
 
-            <h4>Common SASS Variables</h4>
-            <p>In case you'd like to customize the shared variables, the _variables.scss files are where the options are defined for both layout and theme.</p>
+            <h4>SASS Variables</h4>
+            <p>Both the theme and layout provides various variables to customize the design.</p>
 
 <h5>sass/variables/layout/_common.scss</h5>
+<p>Common variables for light, dark and dim application layout.</p>
 <app-code ngPreserveWhitespaces ngNonBindable lang="css">
 $fontSize:14px !default;
 $fontFamily:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !default;
@@ -353,6 +360,7 @@ $phoneBreakpoint:576px !default;
 </app-code>
 
 <h5>sass/variables/layout/_layout_light.scss</h5>
+<p>Variables of the light theme layout.</p>
 <app-code ngPreserveWhitespaces ngNonBindable lang="css">
 @import 'common';
 
@@ -399,6 +407,7 @@ $rightSidebarBg: #ffffff !default;
 </app-code>
 
 <h5>sass/variables/theme/_theme_light</h5>
+<p>Variables of the light component theme, see the <a href="https://www.primefaces.org/designer/api/primeng/10.0.0/">Theme Designer API</a> for documentation.</p>
 <div style="height:400px;overflow: auto;">
 <app-code ngPreserveWhitespaces ngNonBindable lang="css">
 //reused color variables

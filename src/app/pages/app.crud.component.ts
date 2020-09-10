@@ -3,7 +3,7 @@ import { Product } from '../demo/domain/product';
 import { ProductService } from '../demo/service/productservice';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
-import {BreadcrumbService} from '../breadcrumb.service';
+import {BreadcrumbService} from '../app.breadcrumb.service';
 
 @Component({
     templateUrl: './app.crud.component.html',
