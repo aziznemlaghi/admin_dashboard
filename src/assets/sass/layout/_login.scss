@@ -21,6 +21,9 @@
             }
 
             .login-form {
+                @include flex();
+                @include flex-align-center();
+                @include flex-direction-column();
                 > p {
                     font-weight: 600;
                     margin: 0;
