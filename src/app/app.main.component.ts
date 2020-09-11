@@ -43,7 +43,7 @@ export class AppMainComponent implements OnInit{
 
     resetMenu: boolean;
 
-    menuHoverActive: boolean;
+    menuHoverActive = false;
 
     inputStyle = 'outlined';
 

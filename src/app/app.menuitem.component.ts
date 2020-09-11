@@ -28,7 +28,8 @@ import {AppMainComponent} from './app.main.component';
 				<i class="pi pi-fw pi-chevron-down layout-submenu-toggler" *ngIf="item.items"></i>
 			</a>
 
-			<ul *ngIf="item.items" role="menu" [@children]="app.isSlim() ? (root ? app.isMobile()? 'visible': (active ? 'slimVisibleAnimated' : 'slimHiddenAnimated') :
+			<ul *ngIf="item.items" role="menu" [@children]="app.isSlim() ? (root ? app.isMobile()? 'visible':
+			slimClick ? (active  ? 'slimVisibleAnimated' : 'slimHiddenAnimated') : (active ? 'visible' : 'hidden') :
 			(active ? 'visible' : 'hidden')) : (root ? 'visible' :(active ? 'visibleAnimated' : 'hiddenAnimated'))">
 				<ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
 					<li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
@@ -94,6 +95,8 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     key: string;
 
+    slimClick = true;
+
     constructor(public app: AppMainComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
             // deactivate current active menu
@@ -133,6 +136,10 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     itemClick(event: Event) {
+        if (this.app.isSlim()) {
+            this.slimClick = true;
+        }
+
         // avoid processing disabled items
         if (this.item.disabled) {
             event.preventDefault();
@@ -173,9 +180,15 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     onMouseEnter() {
         // activate item on hover
-        if (this.root && this.app.menuHoverActive && this.app.isSlim() && this.app.isDesktop()) {
-            this.menuService.onMenuStateChange(this.key);
-            this.active = true;
+        if (this.root  && this.app.isSlim() && this.app.isDesktop()) {
+            if(this.app.menuHoverActive) {
+                this.menuService.onMenuStateChange(this.key);
+                this.slimClick = false;
+                this.active = true;
+            }
+            else {
+                this.slimClick = true;
+            }
         }
     }
 
