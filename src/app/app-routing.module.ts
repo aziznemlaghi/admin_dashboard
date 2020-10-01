@@ -4,6 +4,7 @@ import {DashboardDemoComponent} from './demo/view/dashboarddemo.component';
 import {FormLayoutDemoComponent} from './demo/view/formlayoutdemo.component';
 import {PanelsDemoComponent} from './demo/view/panelsdemo.component';
 import {OverlaysDemoComponent} from './demo/view/overlaysdemo.component';
+import {MediaDemoComponent} from './demo/view/mediademo.component';
 import {MenusDemoComponent} from './demo/view/menusdemo.component';
 import {MessagesDemoComponent} from './demo/view/messagesdemo.component';
 import {MiscDemoComponent} from './demo/view/miscdemo.component';
@@ -51,6 +52,7 @@ import {AppHelpComponent} from './pages/app.help.component';
                     {path: 'uikit/panel', component: PanelsDemoComponent},
                     {path: 'uikit/overlay', component: OverlaysDemoComponent},
                     {path: 'uikit/menu', component: MenusDemoComponent},
+                    {path: 'uikit/media', component: MediaDemoComponent},
                     {path: 'uikit/message', component: MessagesDemoComponent},
                     {path: 'uikit/misc', component: MiscDemoComponent},
                     {path: 'uikit/charts', component: ChartsDemoComponent},
