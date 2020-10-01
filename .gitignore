@@ -5,7 +5,7 @@ node_modules
 .idea
 sassdoc
 
-src/assets/theme/theme-*.css
+src/assets/theme/*/*.css
 src/assets/layout/css/*.css
 src/assets/sass/theme/designer
 src/assets/sass/theme/extensions
