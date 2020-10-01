@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.2.0
+## 10.0.0
 
 **Implemented New Features and Enhancements:**
 
