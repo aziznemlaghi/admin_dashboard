@@ -175,13 +175,15 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
                 this.menuService.reset();
                 this.app.menuHoverActive = false;
             }
+
+            this.app.unblockBodyScroll();
         }
     }
 
     onMouseEnter() {
         // activate item on hover
         if (this.root  && this.app.isSlim() && this.app.isDesktop()) {
-            if(this.app.menuHoverActive) {
+            if (this.app.menuHoverActive) {
                 this.menuService.onMenuStateChange(this.key);
                 this.slimClick = false;
                 this.active = true;
