@@ -7,7 +7,7 @@
         <ng-template ngFor let-item let-last="last" [ngForOf]="items">
             <span class="viewname" style="text-transform: uppercase">{{item.label}}</span>
         </ng-template>
-        <img id="logo-mobile" class="mobile-logo" src="assets/layout/images/logo-dark.svg" alt="diamond-layout" />
+        <img id="logo-mobile" class="mobile-logo" [src]="'assets/layout/images/logo-'+ (app.colorScheme === 'light' ? 'dark' : 'white') + '.svg'" alt="diamond-layout" />
     </div>
 
     <div class="topbar-right">

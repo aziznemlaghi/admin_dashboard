@@ -8,7 +8,7 @@
 				<div class="invoice">
 					<div class="invoice-header">
 						<div class="invoice-company">
-							<img id="invoice-logo" class="logo-image" src="assets/layout/images/logo-dark.svg" alt="diamond-layout" />
+							<img id="invoice-logo" class="logo-image" [src]="'assets/layout/images/logo-'+ (app.colorScheme === 'light' ? 'dark' : 'white') + '.svg'" alt="diamond-layout" />
 							<div class="company-name">YOUR COMPANY</div>
 							<div>9137 3rd Lane California City</div>
 							<div>CA 93504, U.S.A.</div>
