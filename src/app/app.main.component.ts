@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import { MenuService } from './app.menu.service';
-import { PrimeNGConfig } from 'primeng/api';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {MenuService} from './app.menu.service';
+import {PrimeNGConfig} from 'primeng/api';
 
 @Component({
     selector: 'app-main',
     templateUrl: './app.main.component.html',
 })
-export class AppMainComponent implements OnInit{
+export class AppMainComponent implements OnInit {
     menuMode = 'static';
 
     colorScheme = 'light';
@@ -49,7 +49,10 @@ export class AppMainComponent implements OnInit{
 
     ripple: boolean;
 
-    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig) { }
+    @ViewChild('search') searchElement: ElementRef;
+
+    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig) {
+    }
 
     ngOnInit() {
         this.primengConfig.ripple = true;
@@ -124,6 +127,15 @@ export class AppMainComponent implements OnInit{
     onSearchClick(event) {
         this.search = !this.search;
         this.searchClick = !this.searchClick;
+
+        if (this.search) {
+            this.searchElement.inputElement.nativeElement.focus();
+        }
+    }
+
+    onSearchHide(event) {
+        this.search = false;
+        this.searchClick = false;
     }
 
     onMenuClick($event) {
