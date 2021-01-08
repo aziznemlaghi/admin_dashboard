@@ -49,8 +49,6 @@ export class AppMainComponent implements OnInit {
 
     ripple: boolean;
 
-    @ViewChild('search') searchElement: ElementRef;
-
     constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig) {
     }
 
@@ -127,10 +125,6 @@ export class AppMainComponent implements OnInit {
     onSearchClick(event) {
         this.search = !this.search;
         this.searchClick = !this.searchClick;
-
-        if (this.search) {
-            this.searchElement.inputElement.nativeElement.focus();
-        }
     }
 
     onSearchHide(event) {
