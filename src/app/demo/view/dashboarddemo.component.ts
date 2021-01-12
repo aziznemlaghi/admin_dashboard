@@ -6,7 +6,7 @@ import {BreadcrumbService} from '../../app.breadcrumb.service';
 
 @Component({
     templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboarddemo.scss'],
+    styleUrls: ['./dashboarddemo.scss', './tabledemo.scss'],
 })
 export class DashboardDemoComponent implements OnInit {
 
