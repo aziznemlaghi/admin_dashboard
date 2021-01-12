@@ -1,5 +1,14 @@
 # Changelog
 
+## 10.0.2
+**Migration Guide**
+- Update app.search.component.ts
+- Update theme files and layout files.
+
+**Fixed bugs:**
+
+- Improve search animation and add keyboard support
+
 ## 10.0.1
 **Migration Guide**
 - Update app.menuitem.component.ts 
