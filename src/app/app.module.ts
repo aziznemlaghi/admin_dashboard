@@ -85,6 +85,7 @@ import {AppSearchComponent} from './app.search.component';
 import {AppFooterComponent} from './app.footer.component';
 import {DashboardDemoComponent} from './demo/view/dashboarddemo.component';
 import {FormLayoutDemoComponent} from './demo/view/formlayoutdemo.component';
+import {FloatLabelDemoComponent} from './demo/view/floatlabeldemo.component';
 import {InputDemoComponent} from './demo/view/inputdemo.component';
 import {ButtonDemoComponent} from './demo/view/buttondemo.component';
 import {TableDemoComponent} from './demo/view/tabledemo.component';
@@ -215,6 +216,7 @@ import {MenuService} from './app.menu.service';
         AppFooterComponent,
         DashboardDemoComponent,
         FormLayoutDemoComponent,
+        FloatLabelDemoComponent,
         InputDemoComponent,
         ButtonDemoComponent,
         TableDemoComponent,

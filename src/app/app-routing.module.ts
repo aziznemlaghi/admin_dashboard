@@ -2,6 +2,7 @@ import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {DashboardDemoComponent} from './demo/view/dashboarddemo.component';
 import {FormLayoutDemoComponent} from './demo/view/formlayoutdemo.component';
+import {FloatLabelDemoComponent} from './demo/view/floatlabeldemo.component';
 import {PanelsDemoComponent} from './demo/view/panelsdemo.component';
 import {OverlaysDemoComponent} from './demo/view/overlaysdemo.component';
 import {MediaDemoComponent} from './demo/view/mediademo.component';
@@ -44,6 +45,7 @@ import {AppHelpComponent} from './pages/app.help.component';
                 children: [
                     {path: '', component: DashboardDemoComponent},
                     {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
+                    {path: 'uikit/floatlabel', component: FloatLabelDemoComponent},
                     {path: 'uikit/input', component: InputDemoComponent},
                     {path: 'uikit/button', component: ButtonDemoComponent},
                     {path: 'uikit/table', component: TableDemoComponent},
