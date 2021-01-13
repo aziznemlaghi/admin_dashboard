@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import { CountryService } from '../service/countryservice';
+import {CountryService} from '../service/countryservice';
+import {BreadcrumbService} from '../../app.breadcrumb.service';
 
 @Component({
     templateUrl: './floatlabeldemo.component.html',
     styleUrls: ['./floatlabeldemo.scss']
 })
-export class FloatLabelDemoComponent implements OnInit{
+export class FloatLabelDemoComponent implements OnInit {
 
     countries: any[];
 
@@ -33,7 +34,10 @@ export class FloatLabelDemoComponent implements OnInit{
 
     value10: any;
 
-    constructor(private countryService: CountryService) {
+    constructor(private countryService: CountryService, private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Float Label'}
+        ]);
         this.cities = [
             {name: 'New York', code: 'NY'},
             {name: 'Rome', code: 'RM'},
