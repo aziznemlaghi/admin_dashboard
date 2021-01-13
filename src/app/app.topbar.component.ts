@@ -1,4 +1,5 @@
 import {Component, OnDestroy} from '@angular/core';
+import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
 import { BreadcrumbService } from './app.breadcrumb.service';
 import { Subscription } from 'rxjs';
@@ -14,7 +15,7 @@ export class AppTopBarComponent implements OnDestroy{
 
     items: MenuItem[];
 
-    constructor(public breadcrumbService: BreadcrumbService, public app: AppMainComponent) {
+    constructor(public breadcrumbService: BreadcrumbService, public app: AppComponent, public appMain: AppMainComponent) {
         this.subscription = breadcrumbService.itemsHandler.subscribe(response => {
             this.items = response;
         });

@@ -1,14 +1,14 @@
 <div class="layout-wrapper" [ngClass]="{
-    'layout-overlay': menuMode === 'overlay',
-    'layout-static': menuMode === 'static',
-    'layout-slim': menuMode === 'slim',
-    'layout-sidebar-dim': colorScheme === 'dim',
-    'layout-sidebar-dark': colorScheme === 'dark',
+    'layout-overlay': app.menuMode === 'overlay',
+    'layout-static': app.menuMode === 'static',
+    'layout-slim': app.menuMode === 'slim',
+    'layout-sidebar-dim': app.colorScheme === 'dim',
+    'layout-sidebar-dark': app.colorScheme === 'dark',
     'layout-overlay-active': overlayMenuActive,
     'layout-mobile-active': staticMenuMobileActive,
-    'layout-static-inactive': staticMenuDesktopInactive && menuMode === 'static',
-    'p-input-filled': inputStyle === 'filled', 'p-ripple-disabled': !ripple}" [class]="colorScheme === 'light' ? menuTheme : ''"
-     [attr.data-theme]="colorScheme" (click)="onLayoutClick()">
+    'layout-static-inactive': staticMenuDesktopInactive && app.menuMode === 'static',
+    'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple}" [class]="app.colorScheme === 'light' ? app.menuTheme : ''"
+     [attr.data-theme]="app.colorScheme" (click)="onLayoutClick()">
 
     <div class="layout-content-wrapper">
         <app-topbar></app-topbar>
@@ -24,7 +24,7 @@
 
     <app-menu></app-menu>
 
-    <app-search #search></app-search>
+    <app-search></app-search>
 
     <app-rightmenu></app-rightmenu>
 

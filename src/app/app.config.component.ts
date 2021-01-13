@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { AppMainComponent } from './app.main.component';
+import { AppComponent } from './app.component';
 
 @Component({
     selector: 'app-config',
@@ -7,7 +8,7 @@ import { AppMainComponent } from './app.main.component';
         <a style="cursor: pointer" id="layout-config-button" class="layout-config-button" (click)="onConfigButtonClick($event)">
             <i class="pi pi-cog"></i>
         </a>
-        <div class="layout-config" [ngClass]="{'layout-config-active': app.configActive}" (click)="app.onConfigClick($event)">
+        <div class="layout-config" [ngClass]="{'layout-config-active': appMain.configActive}" (click)="appMain.onConfigClick($event)">
             <h5>Menu Type</h5>
             <div class="p-field-radiobutton">
                 <p-radioButton name="menuMode" value="static" [(ngModel)]="app.menuMode" inputId="mode1"></p-radioButton>
@@ -53,7 +54,7 @@ import { AppMainComponent } from './app.main.component';
             <hr />
 
             <h5>Ripple Effect</h5>
-			<p-inputSwitch [ngModel]="app.ripple" (onChange)="app.onRippleChange($event)"></p-inputSwitch>
+			<p-inputSwitch [ngModel]="app.ripple" (onChange)="appMain.onRippleChange($event)"></p-inputSwitch>
 
             <hr />
 
@@ -84,9 +85,7 @@ export class AppConfigComponent implements OnInit {
 
     componentThemes: any[];
 
-    componentTheme = 'blue';
-
-    constructor(public app: AppMainComponent) {}
+    constructor(public app: AppComponent, public appMain: AppMainComponent) {}
 
     ngOnInit() {
         this.componentThemes = [
@@ -188,13 +187,13 @@ export class AppConfigComponent implements OnInit {
     }
 
     onConfigButtonClick(event) {
-        this.app.configActive = !this.app.configActive;
-        this.app.configClick = true;
+        this.appMain.configActive = !this.appMain.configActive;
+        this.appMain.configClick = true;
         event.preventDefault();
     }
 
     onConfigCloseClick(event) {
-        this.app.configActive = false;
+        this.appMain.configActive = false;
         event.preventDefault();
     }
 }

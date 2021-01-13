@@ -12,7 +12,7 @@ export class AppRightmenuComponent{
 
     selectedAmount: any;
 
-    constructor(public app: AppMainComponent) {
+    constructor(public appMain: AppMainComponent) {
         this.amount = [
             {label: '*****24', value: {id: 1, name: '*****24', code: 'A1'}},
             {label: '*****75', value: {id: 2, name: '*****75', code: 'A2'}}

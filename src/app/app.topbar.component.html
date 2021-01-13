@@ -1,6 +1,6 @@
 <div class="layout-topbar">
     <div class="topbar-left">
-        <a tabindex="0" class="menu-button" (click)="app.onMenuButtonClick($event)">
+        <a tabindex="0" class="menu-button" (click)="appMain.onMenuButtonClick($event)">
             <i class="pi pi-chevron-left"></i>
         </a>
         <span class="topbar-separator"></span>
@@ -13,12 +13,12 @@
     <div class="topbar-right">
         <ul class="topbar-menu">
             <li class="search-item">
-                <a tabindex="0" (click)="app.onSearchClick($event)">
+                <a tabindex="0" (click)="appMain.onSearchClick($event)">
                     <i class="pi pi-search"></i>
                 </a>
             </li>
-            <li class='notifications-item' [ngClass]="{'active-menuitem ': app.topbarNotificationMenuActive}">
-                <a href="#" tabindex="0" (click)="app.onTopbarNotificationMenuButtonClick($event)">
+            <li class='notifications-item' [ngClass]="{'active-menuitem ': appMain.topbarNotificationMenuActive}">
+                <a href="#" tabindex="0" (click)="appMain.onTopbarNotificationMenuButtonClick($event)">
                     <i class="pi pi-bell"></i>
                     <span class="topbar-badge">5</span>
                 </a>
@@ -71,8 +71,8 @@
                 </ul>
             </li>
 
-            <li class="profile-item" [ngClass]="{'active-menuitem fadeInDown': app.topbarUserMenuActive}">
-                <a href="#" (click)="app.onTopbarUserMenuButtonClick($event)">
+            <li class="profile-item" [ngClass]="{'active-menuitem fadeInDown': appMain.topbarUserMenuActive}">
+                <a href="#" (click)="appMain.onTopbarUserMenuButtonClick($event)">
                     <img src="assets/demo/images/avatar/profile.jpg" alt="diamond-layout" class="profile-image"/>
                     <span class="profile-name">Amelia Stone</span>
                 </a>
@@ -111,7 +111,7 @@
             </li>
 
             <li class="right-sidebar-item">
-                <a href="#" tabindex="0" (click)="app.onRightMenuClick($event)">
+                <a href="#" tabindex="0" (click)="appMain.onRightMenuClick($event)">
                     <i class="pi pi-align-right"></i>
                 </a>
             </li>

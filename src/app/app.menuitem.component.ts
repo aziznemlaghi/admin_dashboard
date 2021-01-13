@@ -28,7 +28,7 @@ import {AppMainComponent} from './app.main.component';
 				<i class="pi pi-fw pi-chevron-down layout-submenu-toggler" *ngIf="item.items"></i>
 			</a>
 
-			<ul *ngIf="item.items" role="menu" [@children]="app.isSlim() ? (root ? app.isMobile()? 'visible':
+			<ul *ngIf="item.items" role="menu" [@children]="appMain.isSlim() ? (root ? appMain.isMobile()? 'visible':
 			slimClick ? (active  ? 'slimVisibleAnimated' : 'slimHiddenAnimated') : (active ? 'visible' : 'hidden') :
 			(active ? 'visible' : 'hidden')) : (root ? 'visible' :(active ? 'visibleAnimated' : 'hiddenAnimated'))">
 				<ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
@@ -39,7 +39,7 @@ import {AppMainComponent} from './app.main.component';
     `,
     host: {
         '[class.layout-root-menuitem]': 'root',
-        '[class.active-menuitem]': '(active && !root) || (active && app.isSlim())'
+        '[class.active-menuitem]': '(active && !root) || (active && appMain.isSlim())'
     },
     animations: [
         trigger('children', [
@@ -97,7 +97,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     slimClick = true;
 
-    constructor(public app: AppMainComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
+    constructor(public appMain: AppMainComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
             // deactivate current active menu
             if (this.active && this.key !== key && key.indexOf(this.key) !== 0) {
@@ -111,7 +111,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
         this.router.events.pipe(filter(event => event instanceof NavigationEnd))
             .subscribe(params => {
-                if (this.app.isSlim()) {
+                if (this.appMain.isSlim()) {
                     this.active = false;
                 } else {
                     if (this.item.routerLink) {
@@ -124,7 +124,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        if (!this.app.isSlim() && this.item.routerLink) {
+        if (!this.appMain.isSlim() && this.item.routerLink) {
             this.updateActiveStateFromRoute();
         }
 
@@ -136,7 +136,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     itemClick(event: Event) {
-        if (this.app.isSlim()) {
+        if (this.appMain.isSlim()) {
             this.slimClick = true;
         }
 
@@ -148,7 +148,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
         // navigate with hover in horizontal mode
         if (this.root) {
-            this.app.menuHoverActive = !this.app.menuHoverActive;
+            this.appMain.menuHoverActive = !this.appMain.menuHoverActive;
         }
 
         // notify other items
@@ -166,24 +166,24 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             // activate item
             this.active = true;
 
-            if (this.app.isMobile()) {
-                this.app.staticMenuMobileActive = false;
+            if (this.appMain.isMobile()) {
+                this.appMain.staticMenuMobileActive = false;
             }
 
             // reset horizontal menu
-            if (this.app.isSlim()) {
+            if (this.appMain.isSlim()) {
                 this.menuService.reset();
-                this.app.menuHoverActive = false;
+                this.appMain.menuHoverActive = false;
             }
 
-            this.app.unblockBodyScroll();
+            this.appMain.unblockBodyScroll();
         }
     }
 
     onMouseEnter() {
         // activate item on hover
-        if (this.root  && this.app.isSlim() && this.app.isDesktop()) {
-            if (this.app.menuHoverActive) {
+        if (this.root  && this.appMain.isSlim() && this.appMain.isDesktop()) {
+            if (this.appMain.menuHoverActive) {
                 this.menuService.onMenuStateChange(this.key);
                 this.slimClick = false;
                 this.active = true;

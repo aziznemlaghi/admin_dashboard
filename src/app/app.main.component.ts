@@ -1,18 +1,13 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {MenuService} from './app.menu.service';
 import {PrimeNGConfig} from 'primeng/api';
+import {AppComponent} from './app.component';
 
 @Component({
     selector: 'app-main',
     templateUrl: './app.main.component.html',
 })
-export class AppMainComponent implements OnInit {
-    menuMode = 'static';
-
-    colorScheme = 'light';
-
-    menuTheme = 'layout-sidebar-darkgray';
-
+export class AppMainComponent {
     overlayMenuActive: boolean;
 
     staticMenuDesktopInactive: boolean;
@@ -45,15 +40,7 @@ export class AppMainComponent implements OnInit {
 
     menuHoverActive = false;
 
-    inputStyle = 'outlined';
-
-    ripple: boolean;
-
-    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig) {
-    }
-
-    ngOnInit() {
-        this.primengConfig.ripple = true;
+    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, public app: AppComponent) {
     }
 
     onLayoutClick() {
@@ -165,7 +152,8 @@ export class AppMainComponent implements OnInit {
     }
 
     onRippleChange(event) {
-        this.ripple = event.checked;
+        this.app.ripple = event.checked;
+        this.primengConfig = event.checked;
     }
 
     onConfigClick(event) {
@@ -173,11 +161,11 @@ export class AppMainComponent implements OnInit {
     }
 
     isSlim() {
-        return this.menuMode === 'slim';
+        return this.app.menuMode === 'slim';
     }
 
     isOverlay() {
-        return this.menuMode === 'overlay';
+        return this.app.menuMode === 'overlay';
     }
 
     isDesktop() {

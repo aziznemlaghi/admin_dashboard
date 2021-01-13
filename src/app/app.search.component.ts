@@ -8,9 +8,9 @@ import {animate, state, style, transition, trigger, AnimationEvent} from '@angul
     /* tslint:enable:component-selector */
     template: `
         <div class="layout-search">
-            <div class="search-container" [@animation]="app.search ? 'visible' : 'hidden'" (@animation.done)="onAnimationEnd($event)">
+            <div class="search-container" [@animation]="appMain.search ? 'visible' : 'hidden'" (@animation.done)="onAnimationEnd($event)">
                 <i class="pi pi-search"></i>
-                <input #input type="text" class="p-inputtext search-input" placeholder="Search" (click)="app.searchClick = true;" (keydown)="onInputKeydown($event)"/>
+                <input #input type="text" class="p-inputtext search-input" placeholder="Search" (click)="appMain.searchClick = true;" (keydown)="onInputKeydown($event)"/>
             </div>
         </div>
     `,
@@ -31,7 +31,7 @@ export class AppSearchComponent {
 
     @ViewChild('input') inputElement: ElementRef;
 
-    constructor(public app: AppMainComponent) {}
+    constructor(public appMain: AppMainComponent) {}
 
     onAnimationEnd(event: AnimationEvent) {
         if (event.toState === 'visible') {
@@ -44,7 +44,7 @@ export class AppSearchComponent {
 
         // escape, tab and enter
         if (key === 27 || key === 9 || key === 13) {
-            this.app.onSearchHide(event);
+            this.appMain.onSearchHide(event);
         }
     }
 }

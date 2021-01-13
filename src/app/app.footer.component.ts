@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import {AppMainComponent} from './app.main.component';
+import {AppComponent} from './app.component';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './app.footer.component.html'
 })
 export class AppFooterComponent {
-  constructor(public app: AppMainComponent) {}
+  constructor(public app: AppComponent) {}
 }
