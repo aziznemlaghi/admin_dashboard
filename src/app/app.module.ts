@@ -9,6 +9,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AccordionModule} from 'primeng/accordion';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
 import {BadgeModule} from 'primeng/badge';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {ButtonModule} from 'primeng/button';
@@ -151,6 +152,7 @@ import {MenuService} from './app.menu.service';
         AccordionModule,
         AutoCompleteModule,
         AvatarModule,
+        AvatarGroupModule,
         BadgeModule,
         BreadcrumbModule,
         ButtonModule,
