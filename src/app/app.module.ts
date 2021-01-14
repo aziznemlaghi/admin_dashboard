@@ -8,6 +8,8 @@ import {AppRoutingModule} from './app-routing.module';
 
 import {AccordionModule} from 'primeng/accordion';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {AvatarModule} from 'primeng/avatar';
+import {BadgeModule} from 'primeng/badge';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
@@ -16,13 +18,16 @@ import {CarouselModule} from 'primeng/carousel';
 import {CascadeSelectModule} from 'primeng/cascadeselect';
 import {ChartModule} from 'primeng/chart';
 import {CheckboxModule} from 'primeng/checkbox';
+import {ChipModule} from 'primeng/chip';
 import {ChipsModule} from 'primeng/chips';
 import {CodeHighlighterModule} from 'primeng/codehighlighter';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {ContextMenuModule} from 'primeng/contextmenu';
 import {DataViewModule} from 'primeng/dataview';
 import {DialogModule} from 'primeng/dialog';
+import {DividerModule} from 'primeng/divider';
 import {DropdownModule} from 'primeng/dropdown';
 import {FieldsetModule} from 'primeng/fieldset';
 import {FileUploadModule} from 'primeng/fileupload';
@@ -56,15 +61,19 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {RatingModule} from 'primeng/rating';
 import {RippleModule} from 'primeng/ripple';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {ScrollTopModule} from 'primeng/scrolltop';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {SidebarModule} from 'primeng/sidebar';
+import {SkeletonModule} from 'primeng/skeleton';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import {SliderModule} from 'primeng/slider';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {SplitterModule} from 'primeng/splitter';
 import {StepsModule} from 'primeng/steps';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {TableModule} from 'primeng/table';
 import {TabViewModule} from 'primeng/tabview';
+import {TagModule} from 'primeng/tag';
 import {TerminalModule} from 'primeng/terminal';
 import {TieredMenuModule} from 'primeng/tieredmenu';
 import {TimelineModule} from 'primeng/timeline';
@@ -141,6 +150,8 @@ import {MenuService} from './app.menu.service';
         BrowserAnimationsModule,
         AccordionModule,
         AutoCompleteModule,
+        AvatarModule,
+        BadgeModule,
         BreadcrumbModule,
         ButtonModule,
         CalendarModule,
@@ -149,13 +160,16 @@ import {MenuService} from './app.menu.service';
         CascadeSelectModule,
         ChartModule,
         CheckboxModule,
+        ChipModule,
         ChipsModule,
         CodeHighlighterModule,
         ConfirmDialogModule,
+        ConfirmPopupModule,
         ColorPickerModule,
         ContextMenuModule,
         DataViewModule,
         DialogModule,
+        DividerModule,
         DropdownModule,
         FieldsetModule,
         FileUploadModule,
@@ -189,15 +203,19 @@ import {MenuService} from './app.menu.service';
         RatingModule,
         RippleModule,
         ScrollPanelModule,
+        ScrollTopModule,
         SelectButtonModule,
         SidebarModule,
+        SkeletonModule,
         SlideMenuModule,
         SliderModule,
         SplitButtonModule,
+        SplitterModule,
         StepsModule,
         TableModule,
         TabMenuModule,
         TabViewModule,
+        TagModule,
         TerminalModule,
         TimelineModule,
         TieredMenuModule,
