@@ -18,10 +18,12 @@ import {animate, state, style, transition, trigger, AnimationEvent} from '@angul
         trigger('animation', [
             state('hidden', style({
                 transform: 'translateY(20px)',
-                opacity: 0
+                opacity: 0,
+                visibility: 'hidden'
             })),
             state('visible', style({
-                opacity: 1
+                opacity: 1,
+                visibility: 'visible'
             })),
             transition('hidden <=> visible', animate('.4s cubic-bezier(.05,.74,.2,.99)'))
         ])
