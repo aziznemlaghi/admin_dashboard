@@ -38,6 +38,8 @@ export class TableDemoComponent implements OnInit {
 
     rowGroupMetadata: any;
 
+    activityValues: number[] = [0, 100];
+
     @ViewChild('dt') table: Table;
 
     constructor(private customerService: CustomerService, private productService: ProductService,

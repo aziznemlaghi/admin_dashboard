@@ -22,22 +22,69 @@
 							<p-tableHeaderCheckbox></p-tableHeaderCheckbox>
 						</th>
 						<th pSortableColumn="name">Name
+							<p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
 							<p-sortIcon field="name"></p-sortIcon>
 						</th>
 						<th pSortableColumn="country.name">Country
+							<p-columnFilter type="text" field="country.name" display="menu"></p-columnFilter>
 							<p-sortIcon field="country.name"></p-sortIcon>
 						</th>
-						<th pSortableColumn="representative.name">Representative
-							<p-sortIcon field="representative.name"></p-sortIcon>
+						<th pSortableColumn="representative.name">
+							<div class="p-d-flex p-jc-between p-ai-center">
+								Agent
+								<p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+									<ng-template pTemplate="header">
+										<div class="p-px-3 p-pt-3 p-pb-0">
+											<span class="p-text-bold">Agent Picker</span>
+										</div>
+									</ng-template>
+									<ng-template pTemplate="filter" let-value let-filter="filterCallback">
+										<p-multiSelect [ngModel]="value" [options]="representatives" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name">
+											<ng-template let-option pTemplate="item">
+												<div class="p-multiselect-representative-option">
+													<img [alt]="option.label" src="assets/demo/images/avatar/{{option.image}}" width="32" style="vertical-align: middle" />
+													<span class="p-ml-1">{{option.name}}</span>
+												</div>
+											</ng-template>
+										</p-multiSelect>
+									</ng-template>
+								</p-columnFilter>
+								<p-sortIcon field="representative.name"></p-sortIcon>
+							</div>
 						</th>
 						<th pSortableColumn="date">Date
+							<p-columnFilter type="date" field="date" display="menu"></p-columnFilter>
 							<p-sortIcon field="date"></p-sortIcon>
 						</th>
-						<th pSortableColumn="status">Status
-							<p-sortIcon field="status"></p-sortIcon>
+						<th pSortableColumn="status">
+							<div class="p-d-flex p-jc-between p-ai-center">
+								Status
+								<p-columnFilter field="status" matchMode="equals" display="menu">
+									<ng-template pTemplate="filter" let-value let-filter="filterCallback">
+										<p-dropdown [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Any">
+											<ng-template let-option pTemplate="item">
+												<span [class]="'customer-badge status-' + option.value">{{option.label}}</span>
+											</ng-template>
+										</p-dropdown>
+									</ng-template>
+								</p-columnFilter>
+								<p-sortIcon field="status"></p-sortIcon>
+							</div>
 						</th>
-						<th pSortableColumn="activity">Activity
-							<p-sortIcon field="activity"></p-sortIcon>
+						<th pSortableColumn="activity">
+							<div class="p-d-flex p-jc-between p-ai-center">
+								Activity
+								<p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+									<ng-template pTemplate="filter" let-filter="filterCallback">
+										<p-slider [ngModel]="activityValues" [range]="true" (onSlideEnd)="filter($event.values)" styleClass="p-m-3"></p-slider>
+										<div class="p-d-flex p-ai-center p-jc-between p-px-2">
+											<span>{{activityValues[0]}}</span>
+											<span>{{activityValues[1]}}</span>
+										</div>
+									</ng-template>
+								</p-columnFilter>
+								<p-sortIcon field="activity"></p-sortIcon>
+							</div>
 						</th>
 						<th style="width: 8rem"></th>
 					</tr>
