@@ -56,6 +56,12 @@
 							<p-columnFilter type="date" field="date" display="menu"></p-columnFilter>
 							<p-sortIcon field="date"></p-sortIcon>
 						</th>
+						<th>
+							<div class="p-d-flex p-jc-between p-ai-center">
+								Balance
+								<p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter>
+							</div>
+						</th>
 						<th pSortableColumn="status">
 							<div class="p-d-flex p-jc-between p-ai-center">
 								Status
@@ -114,6 +120,10 @@
 						<td>
 							<span class="p-column-title">Date</span>
 							{{customer.date}}
+						</td>
+						<td>
+							<span class="p-column-title">Balance</span>
+							{{customer.balance | currency:'USD':'symbol'}}
 						</td>
 						<td>
 							<span class="p-column-title">Status</span>

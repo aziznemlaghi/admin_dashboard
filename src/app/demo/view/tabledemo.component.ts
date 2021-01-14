@@ -50,7 +50,7 @@ export class TableDemoComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.customerService.getCustomersMedium().then(customers => this.customers1 = customers);
+        this.customerService.getCustomersLarge().then(customers => this.customers1 = customers);
         this.customerService.getCustomersMedium().then(customers => this.customers2 = customers);
         this.customerService.getCustomersMedium().then(customers => this.customers3 = customers);
         this.productService.getProductsWithOrdersSmall().then(data => this.products = data);
