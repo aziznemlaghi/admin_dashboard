@@ -13,6 +13,7 @@ import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
 import {CardModule} from 'primeng/card';
 import {CarouselModule} from 'primeng/carousel';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
 import {ChartModule} from 'primeng/chart';
 import {CheckboxModule} from 'primeng/checkbox';
 import {ChipsModule} from 'primeng/chips';
@@ -33,6 +34,7 @@ import {InputMaskModule} from 'primeng/inputmask';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {KnobModule} from 'primeng/knob';
 import {LightboxModule} from 'primeng/lightbox';
 import {ListboxModule} from 'primeng/listbox';
 import {MegaMenuModule} from 'primeng/megamenu';
@@ -65,6 +67,7 @@ import {TableModule} from 'primeng/table';
 import {TabViewModule} from 'primeng/tabview';
 import {TerminalModule} from 'primeng/terminal';
 import {TieredMenuModule} from 'primeng/tieredmenu';
+import {TimelineModule} from 'primeng/timeline';
 import {ToastModule} from 'primeng/toast';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import {ToolbarModule} from 'primeng/toolbar';
@@ -143,6 +146,7 @@ import {MenuService} from './app.menu.service';
         CalendarModule,
         CardModule,
         CarouselModule,
+        CascadeSelectModule,
         ChartModule,
         CheckboxModule,
         ChipsModule,
@@ -163,6 +167,7 @@ import {MenuService} from './app.menu.service';
         InputSwitchModule,
         InputTextModule,
         InputTextareaModule,
+        KnobModule,
         LightboxModule,
         ListboxModule,
         MegaMenuModule,
@@ -194,6 +199,7 @@ import {MenuService} from './app.menu.service';
         TabMenuModule,
         TabViewModule,
         TerminalModule,
+        TimelineModule,
         TieredMenuModule,
         ToastModule,
         ToggleButtonModule,
