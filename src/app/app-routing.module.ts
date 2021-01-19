@@ -23,7 +23,7 @@ import {InputDemoComponent} from './demo/view/inputdemo.component';
 import {ButtonDemoComponent} from './demo/view/buttondemo.component';
 import {TableDemoComponent} from './demo/view/tabledemo.component';
 import {ListDemoComponent} from './demo/view/listdemo.component';
-import {TimelineDemoComponent} from './demo/view/timelinedemo.component';
+import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
 import {TreeDemoComponent} from './demo/view/treedemo.component';
 import {DisplayComponent} from './utilities/display.component';
 import {ElevationComponent} from './utilities/elevation.component';
@@ -73,7 +73,7 @@ import {AppHelpComponent} from './pages/app.help.component';
                     {path: 'utilities/text', component: TextComponent},
                     {path: 'pages/crud', component: AppCrudComponent},
                     {path: 'pages/calendar', component: AppCalendarComponent},
-                    {path: 'pages/timeline', component: TimelineDemoComponent},
+                    {path: 'pages/timeline', component: AppTimelineDemoComponent},
                     {path: 'pages/invoice', component: AppInvoiceComponent},
                     {path: 'pages/help', component: AppHelpComponent},
                     {path: 'pages/empty', component: EmptyDemoComponent},
