@@ -195,7 +195,7 @@
     <div class="p-col-12">
         <div class="card">
             <h5>Splitter</h5>
-            <p-splitter [style]="{'height': '200px'}" styleClass="p-mb-5">
+            <p-splitter [style]="{'height': '300px'}" [panelSizes]="[40,60]" [minSizes]="[10,0]" styleClass="p-mb-5">
                 <ng-template>
                     <div class="p-col p-mt-3" style="overflow: auto">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -207,13 +207,28 @@
                     </div>
                 </ng-template>
                 <ng-template>
-                    <div class="p-col p-mt-3" style="overflow: auto">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                        architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                        aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                        voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-                    </div>
+                    <p-splitter layout="vertical" [panelSizes]="[15,85]">
+                        <ng-template>
+                            <div style="flex-grow: 1;" class="p-col p-mt-3" style="overflow: auto">
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                                sit
+                                aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                                voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                            </div>
+                        </ng-template>
+                        <ng-template>
+                            <div style="flex-grow: 1;" class="p-col p-mt-3" style="overflow: auto">
+                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                                praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+                                excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+                                officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem
+                                rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
+                                eligendi optio cumque nihil impedit quo minus.
+                            </div>
+                        </ng-template>
+                    </p-splitter>
                 </ng-template>
             </p-splitter>
         </div>

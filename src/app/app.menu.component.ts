@@ -29,7 +29,6 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Button', icon: 'pi pi-fw pi-mobile', routerLink: ['/uikit/button'], class: 'rotated-icon'},
                     {label: 'Table', icon: 'pi pi-fw pi-table', routerLink: ['/uikit/table']},
                     {label: 'List', icon: 'pi pi-fw pi-list', routerLink: ['/uikit/list']},
-                    {label: 'Timeline', icon: 'pi pi-fw pi-calendar', routerLink: ['/uikit/timeline']},
                     {label: 'Tree', icon: 'pi pi-fw pi-share-alt', routerLink: ['/uikit/tree']},
                     {label: 'Panel', icon: 'pi pi-fw pi-tablet', routerLink: ['/uikit/panel']},
                     {label: 'Overlay', icon: 'pi pi-fw pi-clone', routerLink: ['/uikit/overlay']},
@@ -62,6 +61,7 @@ export class AppMenuComponent implements OnInit {
                 items: [
                     {label: 'Crud', icon: 'pi pi-fw pi-pencil', routerLink: ['/pages/crud']},
                     {label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', routerLink: ['/pages/calendar']},
+                    {label: 'Timeline', icon: 'pi pi-fw pi-calendar', routerLink: ['/pages/timeline']},
                     {label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'},
                     {label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['/login']},
                     {label: 'Invoice', icon: 'pi pi-fw pi-dollar', routerLink: ['/pages/invoice']},

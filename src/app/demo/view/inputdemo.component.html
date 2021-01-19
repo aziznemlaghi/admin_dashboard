@@ -64,18 +64,26 @@
 
 
 		<div class="card">
-			<h5>Slider</h5>
-			<input type="text" pInputText [(ngModel)]="valSlider" readonly/>
-			<p-slider [(ngModel)]="valSlider"></p-slider>
+			<div class="p-grid">
+				<div class="p-col-12">
 
-			<h5>Rating</h5>
-			<p-rating></p-rating>
-
-			<h5>ColorPicker</h5>
-			<p-colorPicker [(ngModel)]="valColor"></p-colorPicker>
-
-			<h5>Knob</h5>
-			<p-knob [(ngModel)]="valueKnob" valueTemplate="{value}%" [step]="10" [min]="-50" [max]="50"></p-knob>
+					<h5>Slider</h5>
+					<input type="text" pInputText [(ngModel)]="valSlider" readonly/>
+					<p-slider [(ngModel)]="valSlider"></p-slider>
+				</div>
+				<div class="p-col-12 p-md-6">
+					<h5>Rating</h5>
+					<p-rating></p-rating>
+				</div>
+				<div class="p-col-12 p-md-6">
+					<h5>ColorPicker</h5>
+					<p-colorPicker [(ngModel)]="valColor"></p-colorPicker>
+				</div>
+				<div class="p-col-12">
+					<h5>Knob</h5>
+					<p-knob [(ngModel)]="valueKnob" valueTemplate="{value}%" [step]="10" [min]="-50" [max]="50"></p-knob>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -130,7 +138,7 @@
 			<p-inputSwitch [(ngModel)]="valSwitch"></p-inputSwitch>
 		</div>
 
-		<div class="card">
+		<div class="card p-fluid">
 			<h5>Listbox</h5>
 			<p-listbox [options]="cities" [(ngModel)]="selectedList" [filter]="true"></p-listbox>
 
@@ -158,7 +166,7 @@
 
 			<h5>CascadeSelect</h5>
 			<p-cascadeSelect [(ngModel)]="selectedCascade" [options]="countriesCascade" optionLabel="cname" optionGroupLabel="name"
-							 [optionGroupChildren]="['states', 'cities']" [style]="{'width': '12rem'}" placeholder="Select a City">
+							 [optionGroupChildren]="['states', 'cities']"  placeholder="Select a City">
 				<ng-template pTemplate="option" let-option>
 					<div class="country-item">
 						<img *ngIf="option.states" src="assets/demo/flags/flag_placeholder.png" [class]="'flag flag-' + option.code.toLowerCase()"/>
