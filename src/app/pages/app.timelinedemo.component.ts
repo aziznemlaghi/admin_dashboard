@@ -4,7 +4,7 @@ import {PrimeIcons} from 'primeng/api';
 
 @Component({
     templateUrl: './app.timelinedemo.component.html',
-    styleUrls: ['../demo/view/timelinedemo.scss']
+    styleUrls: ['./app.timelinedemo.scss']
 })
 export class AppTimelineDemoComponent implements OnInit{
 
