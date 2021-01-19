@@ -158,8 +158,8 @@
 				</ng-template>
 				<ng-template let-country pTemplate="item">
 					<div class="country-item">
-						<img src="assets/demo/flags/flag_placeholder.png" [class]="'flag flag-' + country.value.code.toLowerCase()" />
-						<div>{{country.value.name}}</div>
+						<img src="assets/demo/flags/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" />
+						<div>{{country.name}}</div>
 					</div>
 				</ng-template>
 			</p-multiSelect>
