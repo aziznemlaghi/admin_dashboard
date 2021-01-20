@@ -65,10 +65,11 @@
 								<p-columnFilter type="date" field="date" display="menu" class="p-ml-auto"></p-columnFilter>
 							</div>
 						</th>
-						<th>
+						<th pSortableColumn="balance">
 							<div class="p-d-flex p-jc-between p-ai-center">
 								Balance
-								<p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter>
+								<p-sortIcon field="balance"></p-sortIcon>
+								<p-columnFilter type="numeric" field="balance" display="menu" currency="USD" class="p-ml-auto"></p-columnFilter>
 							</div>
 						</th>
 						<th pSortableColumn="status">
