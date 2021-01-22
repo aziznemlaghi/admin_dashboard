@@ -21,7 +21,7 @@
                     <span class="p-float-label p-input-icon-right">
                         <input type="text" id="righticon" pInputText [(ngModel)]="value12">
                         <label for="righticon">Right Icon</label>
-                        <i class="pi pi-search"></i>
+                        <i class="pi pi-spin pi-spinner"></i>
                     </span>
                 </div>
                 <div class="p-field">
@@ -37,6 +37,15 @@
                     </span>
                 </div>
                 <div class="p-field">
+                    <span class="p-float-label">
+                        <p-chips inputId="chips" [(ngModel)]="value4"></p-chips>
+                        <label for="chips">Chips</label>
+                    </span>
+                </div>
+            </div>
+
+            <div class="p-col-12 p-md-6">
+                <div class="p-field">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">
                             <i class="pi pi-user"></i>
@@ -47,15 +56,6 @@
                         </span>
                     </div>
                 </div>
-                <div class="p-field">
-                    <span class="p-float-label">
-                        <p-chips inputId="chips" [(ngModel)]="value4"></p-chips>
-                        <label for="chips">Chips</label>
-                    </span>
-                </div>
-            </div>
-
-            <div class="p-col-12 p-md-6">
                 <div class="p-field">
                     <span class="p-float-label">
                         <p-autoComplete inputId="autocomplete" [(ngModel)]="value2" [suggestions]="filteredCountries"
@@ -81,22 +81,6 @@
                         <p-multiSelect inputId="multiselect" [options]="cities" [(ngModel)]="value9" optionLabel="name"
                                        [filter]="false"></p-multiSelect>
                         <label for="multiselect">MultiSelect</label>
-                    </span>
-                </div>
-                <div class="p-field">
-                    <span class="p-float-label">
-                        <p-cascadeSelect [(ngModel)]="selectedCascade" [options]="countriesCascade" optionLabel="cname" optionGroupLabel="name"
-                                         [optionGroupChildren]="['states', 'cities']" inputId="cascadeselect">
-                            <ng-template pTemplate="option" let-option>
-                                <div class="country-item">
-                                    <img *ngIf="option.states" src="assets/demo/flags/flag_placeholder.png" [class]="'flag flag-' + option.code.toLowerCase()"/>
-                                    <i class="pi pi-compass p-mr-2" *ngIf="option.cities"></i>
-                                    <i class="pi pi-map-marker p-mr-2" *ngIf="option.cname"></i>
-                                    <span>{{option.cname || option.name}}</span>
-                                </div>
-                            </ng-template>
-                        </p-cascadeSelect>
-                        <label for="cascadeselect">CascadeSelect</label>
                     </span>
                 </div>
                 <div class="p-field">
