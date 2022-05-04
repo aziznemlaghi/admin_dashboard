@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
@@ -90,12 +90,11 @@ import {AppCodeModule} from './app.code.component';
 import {AppComponent} from './app.component';
 import {AppMainComponent} from './app.main.component';
 import {AppConfigComponent} from './app.config.component';
-import {AppRightmenuComponent} from './app.rightmenu.component';
-import {AppMenuComponent} from './app.menu.component';
+import {AppMenuComponent} from './menu/app.menu.component';
 import {AppMenuitemComponent} from './app.menuitem.component';
-import {AppTopBarComponent} from './app.topbar.component';
+import {AppTopBarComponent} from './header/app.topbar.component';
 import {AppSearchComponent} from './app.search.component';
-import {AppFooterComponent} from './app.footer.component';
+import {AppFooterComponent} from './footer/app.footer.component';
 import {DashboardDemoComponent} from './demo/view/dashboarddemo.component';
 import {FormLayoutDemoComponent} from './demo/view/formlayoutdemo.component';
 import {FloatLabelDemoComponent} from './demo/view/floatlabeldemo.component';
@@ -132,7 +131,7 @@ import {AppHelpComponent} from './pages/app.help.component';
 import {AppNotfoundComponent} from './pages/app.notfound.component';
 import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
-import {AppLoginComponent} from './pages/app.login.component';
+import {AppLoginComponent} from './auth/app.login.component';
 
 import {CountryService} from './demo/service/countryservice';
 import {CustomerService} from './demo/service/customerservice';
@@ -142,7 +141,16 @@ import {NodeService} from './demo/service/nodeservice';
 import {PhotoService} from './demo/service/photoservice';
 import {ProductService} from './demo/service/productservice';
 import {BreadcrumbService} from './app.breadcrumb.service';
-import {MenuService} from './app.menu.service';
+import {MenuService} from './menu/app.menu.service';
+import {AddServiceComponent} from './service/add-service.component';
+import {UpdateServiceComponent} from './service/update-service.component';
+import {ServiceComponent} from './service/service.component';
+import { ServiceService } from './service/service.service';
+import { AuthService } from './auth/services/auth.service';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { AuthInterceptorService } from './auth/services/auth-interceptor.service';
+import { UsersComponent } from './users/users.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 @NgModule({
     imports: [
@@ -233,9 +241,12 @@ import {MenuService} from './app.menu.service';
         AppCodeModule
     ],
     declarations: [
+        AddServiceComponent,
+        UpdateServiceComponent,
+        TableDemoComponent,
+        ServiceComponent,
         AppComponent,
         AppMainComponent,
-        AppRightmenuComponent,
         AppMenuComponent,
         AppMenuitemComponent,
         AppConfigComponent,
@@ -280,11 +291,18 @@ import {MenuService} from './app.menu.service';
         AppErrorComponent,
         AppTimelineDemoComponent,
         AppAccessdeniedComponent,
+        UsersComponent,
+        ReservationsComponent,
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
-        CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, MenuService, BreadcrumbService
+        CountryService, CustomerService, EventService, IconService, NodeService, ServiceService, AuthService, AuthGuard,
+        PhotoService, ProductService, MenuService, BreadcrumbService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptorService,
+            multi: true,
+          },
     ],
     bootstrap: [AppComponent]
 })

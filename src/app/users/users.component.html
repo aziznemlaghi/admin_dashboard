@@ -1,0 +1,31 @@
+<div class="card">
+<p-table [value]="users" responsiveLayout="scroll" 	 [paginator]="true" [rows]="10"				 styleClass="p-datatable-customers">
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            <h5 class="p-m-0">Users list</h5>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>user Id</th>
+            <th>FullName</th>
+            <th>Phone number</th>
+            <th>email</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user let-columns="columns">
+        <tr>
+            <td>{{user._id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.phone}} </td>
+            <td>{{user.email}}</td>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+            In total there are {{users ? users.length : 0 }} Services.
+        </div>
+    </ng-template>
+</p-table>
+</div>

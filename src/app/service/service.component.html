@@ -1,0 +1,39 @@
+<div class="card">
+
+
+<p-table [value]="services" responsiveLayout="scroll" [paginator]="true" [rows]="10"  styleClass="p-datatable-customers">
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            <h5 class="p-m-0"> Manage Services</h5>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Action</th>
+
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-service>
+        <tr>
+            <td>{{service._id}}</td>
+            <td>{{service.name}}</td>
+            <td>{{service.price}} Dt</td>
+            <td>{{service.description}}</td>
+            <td>
+                <button [routerLink]="['/pages/service/update/', service._id]" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"></button> &nbsp;
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteService(service)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+            In total there are {{services ? services.length : 0 }} Services.
+        </div>
+    </ng-template>
+</p-table>
+</div>

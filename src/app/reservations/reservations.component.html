@@ -1,0 +1,47 @@
+<div class="card">
+
+<p-table [value]="reservations"  styleClass="p-datatable-customers"responsiveLayout="scroll" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            <h5 class="p-m-0">Manage Reservations</h5>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Reservation Id</th>
+            <th>Service name</th>
+            <th>price</th>
+            <th>Client </th>
+            <th>Client phone</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-reservation>
+        <tr>
+            <td>{{reservation._id}}</td>
+
+            <td>{{reservation.service.name}}</td>
+            <td>{{reservation.service.price}}</td>
+            <td>{{reservation.phone}} </td>
+            <td>{{reservation.email}}</td>
+            <td>{{reservation.date | date :'dd/MM/yyyy hh:mm'}}</td>
+            <td>{{reservation.status}}</td>
+
+
+            <td>
+                <button class="btn btn-danger" (click)="acceptReservation()">Accept</button> &nbsp;
+                <button class="btn btn-danger" (click)="refuseReservation(reservation)"> Refuse</button>
+            </td>
+
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+            In total there are {{reservations ? reservations.length : 0 }} Reservations.
+        </div>
+    </ng-template>
+</p-table>
+</div>

@@ -1,0 +1,55 @@
+<div class="login-body">
+    <div class="login-wrapper">
+        <div class="login-panel">
+            <img  [src]="'assets/layout/images/logo-'+ (app.colorScheme === 'light' ? 'dark' : 'white') + '.svg'" class="logo" alt="diamond-layout" />
+
+
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <div class="login-form">
+                <h2>Admin Dashboard Login</h2>
+                <input #emailInput="ngModel"
+                id="j_idt93_input"
+                       ngModel
+                       type="email"
+                       id="email"
+                       name="email"
+                       required
+                       [email]="true"
+                       placeholder="Email"
+                       pinputtext/>
+                <text style="color: red;margin-top: 0px;" *ngIf="!emailInput.valid && emailInput.touched"
+                >Please enter your email address.</text>
+                <input #passwordInput="ngModel"
+                ngModel
+                type="password"
+                name="password"
+                id="password"
+                minlength="8"
+                required placeholder="Password" />
+                <text style="color: red;" *ngIf="!passwordInput.valid && passwordInput.touched">Please enter your password.</text>
+                <button  pButton label="Login" [disabled]="!form.valid"
+                        type="submit" ></button>
+            </div>
+            </form>
+
+
+
+            <p>A problem? <a href="#">Click here</a> and let us help you.</p>
+        </div>
+        <div class="login-image">
+            <div class="login-image-content">
+                <h1>Access to your</h1>
+                <h1>Admin</h1>
+                <h1>Dashboard</h1>
+
+            </div>
+            <div class="image-footer">
+                <p>Whonox softwares</p>
+                <div class="icons">
+                    <i class="pi pi-github"></i>
+                    <i class="pi pi-twitter"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

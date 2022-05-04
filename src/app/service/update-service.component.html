@@ -1,0 +1,21 @@
+<div class="card">
+
+<script src="update-service.component.ts"></script><h2>Update Services</h2>
+<form (ngSubmit)="updateService()" #reservationForm="ngForm">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input [(ngModel)]="service.name"  placeholder="Name" name="name" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+        <label for="price">price:</label>
+        <input [(ngModel)]="service.price" placeholder="price" type="number" name="price" class="form-control" id="price">
+    </div>
+    <div class="form-group">
+        <label for="description">Decription:</label>
+        <input [(ngModel)]="service.description" type="textArea" placeholder="Description" name="description" class="form-control" id="description">
+    </div>
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-success">Update</button>
+    </div>
+</form>
+</div>

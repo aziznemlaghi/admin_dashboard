@@ -50,8 +50,7 @@ export class AppCrudComponent implements OnInit {
             {field: 'name', header: 'Name'},
             {field: 'price', header: 'Price'},
             {field: 'category', header: 'Category'},
-            {field: 'rating', header: 'Reviews'},
-            {field: 'inventoryStatus', header: 'Status'}
+            {field: 'id', header: 'id'},
         ];
     }
 

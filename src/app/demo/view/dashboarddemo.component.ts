@@ -37,9 +37,7 @@ export class DashboardDemoComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.productService.getProducts().then(data => this.products = data);
-        this.productService.getProducts().then(data => this.productsThisWeek = data);
-        this.productService.getProductsMixed().then(data => this.productsLastWeek = data);
+
 
         this.cols = [
             {field: 'vin', header: 'Vin'},
@@ -114,7 +112,6 @@ export class DashboardDemoComponent implements OnInit {
             [2, 2, 20, 4, 17, 16, 20]
         ];
 
-        this.ordersChart.datasets[0].data = dataSet[parseInt(event.currentTarget.getAttribute('data-index'))];
         this.ordersChart.datasets[0].label = event.currentTarget.getAttribute('data-label');
         this.ordersChart.datasets[0].borderColor = event.currentTarget.getAttribute('data-stroke');
         this.ordersChart.datasets[0].backgroundColor = event.currentTarget.getAttribute('data-fill');
